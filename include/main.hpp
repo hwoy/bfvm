@@ -5,7 +5,7 @@
 #include <help.hpp>
 
 
-static unsigned int bracket(std::istream &fin,ip_t &prog)
+static unsigned int bracket(std::istream &fin,prog_t &prog)
 {
 	unsigned int n=1;
 	INST inst;
@@ -66,7 +66,7 @@ if(argc > 2)
 try{
 	Tape tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
-	ip_t prog(LOOPLIMIT*1024);
+	prog_t prog(LOOPLIMIT*1024);
 	INST inst;
 	
 	while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)

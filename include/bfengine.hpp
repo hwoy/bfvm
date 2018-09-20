@@ -31,7 +31,7 @@ enum class INST : unsigned char
 using cell_t = CELL_T;
 
 using inst_t = INST;
-using ip_t = std::vector<inst_t>;
+using prog_t = std::vector<inst_t>;
 
 
 class Bfexception final: public std::exception
