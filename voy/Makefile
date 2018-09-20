@@ -1,6 +1,6 @@
 include ../Makefile.in
 
-BIN=bf
+BIN=voy
 
 
 .PHONY: all clean
