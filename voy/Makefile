@@ -5,7 +5,7 @@ BIN=voy
 BIN2=bf2voy
 
 
-.PHONY: all clean
+.PHONY: all clean test
 
 all: $(BIN) $(BIN2)
 
@@ -21,5 +21,7 @@ main2.o: main2.cpp ../include/main2.hpp ../include/bfengine.hpp ../include/commo
  config.hpp
 
 clean:
-	rm -rf *.exe *.o
+	rm -rf *.exe *.o *.eso
 
+test: all
+	$(BIN2) $(BF) test.eso
