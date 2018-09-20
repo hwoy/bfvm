@@ -1,6 +1,6 @@
-.PHONY: all clean bfengin brainfuck voy assfuck
+.PHONY: all clean bfengin brainfuck voyfuck assfuck
 
-all: bfengin brainfuck voy test_voy test_assfuck assfuck test 
+all: bfengin brainfuck voyfuck test_voyfuck test_assfuck assfuck test 
 
 bfengin:
 	make -C bfengine
@@ -8,10 +8,10 @@ bfengin:
 brainfuck:
 	make -C brainfuck
 
-voy:
-	make -C voy
-test_voy:
-	make -C voy test
+voyfuck:
+	make -C voyfuck
+test_voyfuck:
+	make -C voyfuck test
 
 assfuck:
 	make -C assfuck
@@ -19,6 +19,6 @@ test_assfuck:
 	make -C assfuck test
 
 clean:
-	make -C bfengine clean ; make -C brainfuck clean ; make -C voy clean ; make -C assfuck clean
+	make -C bfengine clean ; make -C brainfuck clean ; make -C voyfuck clean ; make -C assfuck clean
 
-test: test_voy test_assfuck
+test: test_voyfuck test_assfuck
