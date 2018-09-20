@@ -24,7 +24,7 @@ static void usage(const char *path,const char *str)
 }
 
 template <class ... Args>
-static const std::string parsetobf(INST inst,Args... str)
+static const std::string vmtoesotric(INST inst,Args... str)
 {
 	const std::array<std::string,sizeof...(str)> arr{str...};
 	return arr[static_cast<std::size_t>(inst)];
@@ -71,7 +71,7 @@ unsigned int col=0;
 	
 while((inst=parseinst(make_parseinst(BFINST),fin)) != INST::INVALID)
 {
-	out << parsetobf(inst,PROGINST);
+	out << vmtoesotric(inst,PROGINST);
 	if(!(col=(col+1)%COL)) out << std::endl;
 }
 	
