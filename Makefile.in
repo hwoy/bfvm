@@ -1,0 +1,18 @@
+CXX = g++
+
+STD =c++11 -pedantic
+
+LOOPLIMIT=64
+
+TAPESIZE=512
+
+CELL_T=char
+
+INCLUDE = ../include
+LIB=../lib
+
+FLAGS = -DLOOPLIMIT=$(LOOPLIMIT) -DBFTAPE=$(TAPESIZE) -DCELL_T=$(CELL_T)
+
+DEBUGFLAGS = -g -Wall -std=$(STD)
+
+CXXFLAGS = $(DEBUGFLAGS) $(FLAGS) -I$(INCLUDE)
