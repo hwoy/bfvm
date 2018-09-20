@@ -5,12 +5,12 @@
 #include <help.hpp>
 
 
-static unsigned int bracket(std::istream &fin,ip_t &ip)
+static unsigned int bracket(std::istream &fin,ip_t &prog)
 {
 	unsigned int n=1;
 	INST inst;
-	auto looplimit = ip.capacity();
-	auto limit = looplimit-ip.size();
+	auto looplimit = prog.capacity();
+	auto limit = looplimit-prog.size();
 			
 	while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
 		{
@@ -18,7 +18,7 @@ static unsigned int bracket(std::istream &fin,ip_t &ip)
 			if(inst==INST::BEGIN_WHILE) ++n;
 			else if(inst==INST::END_WHILE) --n;
 				
-			ip.push_back(inst);
+			prog.push_back(inst);
 			
 			if(!n) break;
 			if(!(--limit)) throw Bfexception("Large [] loop Over the limit:" + std::to_string(looplimit) + " ,Please check your code.");
@@ -66,18 +66,18 @@ if(argc > 2)
 try{
 	Tape tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
-	ip_t ip(LOOPLIMIT*1024);
+	ip_t prog(LOOPLIMIT*1024);
 	INST inst;
 	
 	while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
 	{
-		ip.clear();
-		ip.push_back(inst);
+		prog.clear();
+		prog.push_back(inst);
 		
-		if(inst==INST::BEGIN_WHILE && bracket(fin,ip)) throw Bfexception(Bfexception::eid_while);
+		if(inst==INST::BEGIN_WHILE && bracket(fin,prog)) throw Bfexception(Bfexception::eid_while);
 		else if(inst==INST::END_WHILE) throw Bfexception(Bfexception::eid_endwhile);
 
-		engine.eval(tape,ip.begin(),ip.end());
+		engine.eval(tape,prog.begin(),prog.end());
 	}
 	
 
