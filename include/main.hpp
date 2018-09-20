@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-#include <bfengine.hpp>
-#include <help.hpp>
+#include "bfengine.hpp"
+#include "help.hpp"
 
 
 static unsigned int bracket(std::istream &fin,prog_t &prog)
