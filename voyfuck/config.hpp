@@ -1,4 +1,4 @@
-#define PROGINST "voy","Voy","vOy","voY","VOy","vOY","VoY","VOY"
+#define PROGINST "VOY","voy","VOy","voY","Voy","vOY","VoY","vOy"
 
 #define PROGDESC "a voyfuck esoteric Interpreter."
 
