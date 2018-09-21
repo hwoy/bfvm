@@ -43,7 +43,7 @@ if(argc >= 2)
 
 INST inst;	
 while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
-	fout << static_cast<char>(inst);
+	fout << reinterpret_cast<char&>(inst);
 	
 
 

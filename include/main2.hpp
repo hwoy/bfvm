@@ -65,12 +65,11 @@ if(argc > 2)
 
 std::ostream &out(argc>2 ? fout : std::cout);
 
-INST inst;
 unsigned int col=0;
 char ch;
-while(fin.get(ch),inst=static_cast<INST>(ch),!fin.eof())
+while(fin.get(ch),!fin.eof())
 {
-	out << vmtoesotric(inst,PROGINST);
+	out << vmtoesotric(reinterpret_cast<INST&>(ch),PROGINST);
 	if(!(col=(col+1)%COL)) out << std::endl;
 }
 	
