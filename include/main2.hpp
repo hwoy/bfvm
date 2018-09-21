@@ -54,7 +54,7 @@ std::ofstream fout;
 
 if(argc > 2)
 {
-	fout.open(argv[2],std::ios::binary);
+	fout.open(argv[2]);
 	if(!fout) 
 	{
 		showerr(err_fout,err,argv[2]);

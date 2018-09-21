@@ -20,7 +20,7 @@ std::ifstream fin;
 
 if(argc > 1)
 {
-	fin.open(argv[1],std::ios::binary);
+	fin.open(argv[1]);
 	if(!fin) 
 	{
 		showerr(err_fin,err,argv[1]);
