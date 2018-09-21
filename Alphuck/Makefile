@@ -2,7 +2,7 @@ include ../Makefile.in
 
 BIN=alphuck
 
-BIN2=bf2alphuck
+BIN2=bc2alphuck
 
 
 .PHONY: all clean test

@@ -1,7 +1,7 @@
 #define PROGINST "Ook. Ook.","Ook! Ook!","Ook. Ook?","Ook? Ook.","Ook! Ook.","Ook. Ook!","Ook! Ook?","Ook? Ook!"
 
-#define PROGDESC "a Ook! esoteric Interpreter."
+#define PROGDESC "a Ook! esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "brainfuck to OOk! converter."
+#define PROGDESC2 "bytecode to OOk! converter."
 
 

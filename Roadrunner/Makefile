@@ -2,7 +2,7 @@ include ../Makefile.in
 
 BIN=roadrunner
 
-BIN2=bf2roadrunner
+BIN2=bc2roadrunner
 
 
 .PHONY: all clean test

@@ -2,7 +2,7 @@ include ../Makefile.in
 
 BIN=triplet
 
-BIN2=bf2triplet
+BIN2=bc2triplet
 
 
 .PHONY: all clean test

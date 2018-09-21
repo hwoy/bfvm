@@ -2,7 +2,7 @@ include ../Makefile.in
 
 BIN=ass
 
-BIN2=bf2ass
+BIN2=bc2ass
 
 
 .PHONY: all clean test

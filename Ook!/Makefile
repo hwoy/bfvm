@@ -1,7 +1,7 @@
 include ../Makefile.in
 
 BIN=ook
-BIN2=bf2ook
+BIN2=bc2ook
 
 
 .PHONY: all clean test

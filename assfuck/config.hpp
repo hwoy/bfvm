@@ -1,7 +1,7 @@
 #define PROGINST "ass","Ass","aSs","asS","ASs","aSS","AsS","ASS"
 
-#define PROGDESC "a assfuck esoteric Interpreter."
+#define PROGDESC "a assfuck esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "brainfuck to assfuck converter."
+#define PROGDESC2 "bytecode to assfuck converter."
 
 

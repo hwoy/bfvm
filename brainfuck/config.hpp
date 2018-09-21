@@ -1,3 +1,3 @@
 #define PROGINST "+","-",">","<",".",",","[","]"
-#define PROGDESC "a Brainf**k Interpreter."
+#define PROGDESC "a Brainf**k to bytecode Interpreter."
 

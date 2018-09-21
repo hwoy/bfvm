@@ -2,7 +2,7 @@ include ../Makefile.in
 
 BIN=reversefuck
 
-BIN2=bf2reversefuck
+BIN2=bc2reversefuck
 
 
 .PHONY: all clean test
