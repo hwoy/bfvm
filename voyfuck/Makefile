@@ -23,5 +23,3 @@ main2.o: main2.cpp ../include/main2.hpp ../include/bfengine.hpp ../include/commo
 clean:
 	rm -rf *.exe *.o *.eso $(BIN) $(BIN2)
 
-test: all
-	$(BIN2) $(BF) test.eso

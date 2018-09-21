@@ -60,4 +60,3 @@ clean:
 	make -C Ook! clean ; make -C Alphuck clean ;\
 	make -C reversefuck clean ; make -C Blub clean ; make -C Roadrunner clean ; make -C Triplet clean
 
-test: bfengine test_voyfuck test_assfuck test_Ook! test_Alphuck test_reversefuck test_Blub test_Roadrunner test_Triplet
