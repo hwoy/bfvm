@@ -38,4 +38,4 @@ clean:
 	make -C voyfuck clean ; make -C assfuck clean ;\
 	make -C Ook! clean ; make -C Alphuck clean ; make -C reversefuck clean
 
-test: test_voyfuck test_assfuck test_Ook! test_Alphuck test_reversefuck
+test: bfengin test_voyfuck test_assfuck test_Ook! test_Alphuck test_reversefuck
