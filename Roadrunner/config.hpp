@@ -2,6 +2,6 @@
 
 #define PROGDESC "a Roadrunner esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "bytecode to Roadrunner converter."
+#define PROGDESC2 "Bytecode to Roadrunner Converter."
 
 

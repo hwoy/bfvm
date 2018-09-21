@@ -2,6 +2,6 @@
 
 #define PROGDESC "a voyfuck esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "bytecode to voyfuck converter."
+#define PROGDESC2 "Bytecode to voyfuck Converter."
 
 

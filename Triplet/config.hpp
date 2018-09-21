@@ -2,6 +2,6 @@
 
 #define PROGDESC "a Triplet esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "bytecode to Triplet converter."
+#define PROGDESC2 "Bytecode to Triplet Converter."
 
 

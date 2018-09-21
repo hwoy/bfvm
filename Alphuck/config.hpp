@@ -2,6 +2,6 @@
 
 #define PROGDESC "a Alphuck esoteric to bytecode Interpreter."
 
-#define PROGDESC2 "bytecode to Alphuck converter."
+#define PROGDESC2 "Bytecode to Alphuck Converter."
 
 
