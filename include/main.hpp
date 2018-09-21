@@ -46,8 +46,5 @@ while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
 	fout << reinterpret_cast<char&>(inst);
 	
 
-
-	
-
 return 0;
 }

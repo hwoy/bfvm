@@ -74,7 +74,5 @@ while(fin.get(ch),!fin.eof())
 }
 	
 
-	
-
 return 0;
 }
