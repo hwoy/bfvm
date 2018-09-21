@@ -2,7 +2,6 @@
 #include <fstream>
 
 #include "bfengine.hpp"
-
 #include "help.hpp"
 
 
@@ -42,12 +41,9 @@ if(argc >= 2)
 }
 
 
-
-std::ostream &out(fout);
-INST inst;
-	
+INST inst;	
 while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
-	out << static_cast<char>(inst);
+	fout << static_cast<char>(inst);
 	
 
 
