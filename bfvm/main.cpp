@@ -11,8 +11,9 @@ static unsigned int bracket(std::istream &fin,prog_t &prog)
 	INST inst;
 	auto looplimit = prog.capacity();
 	auto limit = looplimit-prog.size();
-			
-	while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
+	
+	char ch;	
+	while(fin.get(ch),inst=static_cast<INST>(ch),!fin.eof())
 		{
 			
 			if(inst==INST::BEGIN_WHILE) ++n;
