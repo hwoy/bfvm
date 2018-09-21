@@ -199,7 +199,7 @@ class BFEngine
 				case INST::PRED_PTR: --tape; break;
 			
 
-				case INST::PUT_VALUE: out << static_cast<char>(*tape.getptr()); out.flush(); 	break;
+				case INST::PUT_VALUE: out << reinterpret_cast<const char&>(*tape.getptr()); out.flush(); 	break;
 				case INST::GET_VALUE: *tape.getptr_mutable() = std::cin.get();	 break;
 				
 				case INST::BEGIN_WHILE: if (!*tape)	std::tie(ip,n) = beginwhile(++ip,end);	break;	
