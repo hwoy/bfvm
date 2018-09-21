@@ -37,9 +37,9 @@ class Bfexception final: public std::exception
 	Bfexception(std::string &&msg):msg(std::move(msg)),id(-1U) {}
 	
 	
-	~Bfexception(){}
+	~Bfexception() override = default;
 	
-	const char* 	what() const noexcept
+	const char* 	what() const noexcept override
 {
 	return msg.c_str();
 }
