@@ -179,7 +179,7 @@ class BFEngine
 	public:
 	
 	
-	BFEngine(std::streambuf *rd):out(rd){}
+	explicit BFEngine(std::streambuf *rd):out(rd){}
 	
 
 	template <class T,class V>
