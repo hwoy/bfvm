@@ -224,7 +224,8 @@ static parseinst_t make_parseinst(Strs ... str)
 	return parseinst_t {std::make_pair(0,std::string(str))...};
 }
 
-static INST parseinst(parseinst_t &&parse,std::istream &in)
+template <class T>
+static INST parseinst(parseinst_t &&parse,std::basic_istream<T> &in)
 {
 	char ch;
 	
