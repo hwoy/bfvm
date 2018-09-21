@@ -1,6 +1,6 @@
-.PHONY: all clean bfengin brainfuck voyfuck assfuck Ook!
+.PHONY: all clean bfengin brainfuck voyfuck test_voyfuck assfuck test_assfuck Ook! test_Ook! Alphuck test_Alphuck
 
-all: bfengin brainfuck voyfuck test_voyfuck test_assfuck assfuck test  Ook! test_Ook!
+all: bfengin brainfuck voyfuck  assfuck  Ook! Alphuck
 
 bfengin:
 	make -C bfengine
@@ -23,7 +23,12 @@ Ook!:
 test_Ook!:
 	make -C Ook! test
 
-clean:
-	make -C bfengine clean ; make -C brainfuck clean ; make -C voyfuck clean ; make -C assfuck clean ; make -C Ook! clean
+Alphuck:
+	make -C Alphuck
+test_Alphuck:
+	make -C Alphuck test
 
-test: test_voyfuck test_assfuck test_Ook!
+clean:
+	make -C bfengine clean ; make -C brainfuck clean ; make -C voyfuck clean ; make -C assfuck clean ; make -C Ook! clean ; make -C Alphuck clean
+
+test: test_voyfuck test_assfuck test_Ook! test_Alphuck
