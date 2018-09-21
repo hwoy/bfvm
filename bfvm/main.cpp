@@ -65,11 +65,11 @@ try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	prog_t prog(LOOPLIMIT*1024);
-	INST inst;
 	char ch;
-	while(fin.get(ch),inst=static_cast<INST>(ch),!fin.eof())
+	while(fin.get(ch),!fin.eof())
 	{
 		prog.clear();
+		INST inst=static_cast<INST>(ch);
 		prog.push_back(inst);
 		
 		if(inst==INST::BEGIN_WHILE && bracket(fin,prog)) throw Bfexception(Bfexception::eid_while);
