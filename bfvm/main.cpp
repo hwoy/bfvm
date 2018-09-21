@@ -8,14 +8,13 @@
 static unsigned int bracket(std::istream &fin,prog_t &prog)
 {
 	unsigned int n=1;
-	INST inst;
 	auto looplimit = prog.capacity();
 	auto limit = looplimit-prog.size();
 	
 	char ch;	
-	while(fin.get(ch),inst=static_cast<INST>(ch),!fin.eof())
+	while(fin.get(ch),!fin.eof())
 		{
-			
+			INST inst=reinterpret_cast<INST&>(ch);
 			if(inst==INST::BEGIN_WHILE) ++n;
 			else if(inst==INST::END_WHILE) --n;
 				
@@ -69,7 +68,7 @@ try{
 	while(fin.get(ch),!fin.eof())
 	{
 		prog.clear();
-		INST inst=static_cast<INST>(ch);
+		INST inst=reinterpret_cast<INST&>(ch);
 		prog.push_back(inst);
 		
 		if(inst==INST::BEGIN_WHILE && bracket(fin,prog)) throw Bfexception(Bfexception::eid_while);
