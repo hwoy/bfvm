@@ -1,4 +1,6 @@
-.PHONY: all clean bfengin brainfuck voyfuck test_voyfuck assfuck test_assfuck Ook! test_Ook! Alphuck test_Alphuck reversefuck test_reversefuck
+.PHONY: all clean bfengin brainfuck voyfuck test_voyfuck \
+assfuck test_assfuck Ook! test_Ook! \
+Alphuck test_Alphuck reversefuck test_reversefuck
 
 all: bfengin brainfuck voyfuck  assfuck  Ook! Alphuck reversefuck
 
@@ -32,6 +34,7 @@ reversefuck:
 	make -C reversefuck
 test_reversefuck:
 	make -C reversefuck test
+
 
 clean:
 	make -C bfengine clean ; make -C brainfuck clean ;\
