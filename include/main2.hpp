@@ -10,8 +10,6 @@
 #define COL 32
 #endif
 
-#define BFINST "+","-",">","<",".",",","[","]"
-
 
 static void usage(const char *path,const char *str)
 {
@@ -66,10 +64,11 @@ if(argc > 2)
 
 
 std::ostream &out(argc>2 ? fout : std::cout);
+
 INST inst;
 unsigned int col=0;
-	
-while((inst=parseinst(make_parseinst(BFINST),fin)) != INST::INVALID)
+char ch;
+while(fin.get(ch),inst=static_cast<INST>(ch),!fin.eof())
 {
 	out << vmtoesotric(inst,PROGINST);
 	if(!(col=(col+1)%COL)) out << std::endl;
