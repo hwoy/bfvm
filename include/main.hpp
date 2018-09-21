@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "bfengine.hpp"
+
 #include "help.hpp"
 
 
@@ -64,7 +65,7 @@ if(argc > 2)
 
 
 try{
-	Tape tape(TAPESIZE);
+	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	prog_t prog(LOOPLIMIT*1024);
 	INST inst;

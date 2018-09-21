@@ -10,10 +10,10 @@ BIN2=bf2triplet
 all: $(BIN) $(BIN2)
 
 $(BIN): main.o
-	$(CXX) -o $(BIN) main.o -L$(LIB) -lbfengine
+	$(CXX) -o $(BIN) main.o
 
 $(BIN2): main2.o
-	$(CXX) -o $(BIN2) main2.o -L$(LIB) -lbfengine
+	$(CXX) -o $(BIN2) main2.o
 
 main.o: main.cpp config.hpp ../include/main.hpp ../include/bfengine.hpp ../include/help.hpp
 

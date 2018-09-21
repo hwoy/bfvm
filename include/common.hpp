@@ -1,3 +1,9 @@
+#ifndef CELL_T
+#define CELL_T char
+#endif
+
+using cell_t = CELL_T;
+
 struct path{
 	static constexpr const char * const grap(const char * const path)
 	{

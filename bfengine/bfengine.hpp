@@ -9,11 +9,6 @@
 #include <string>
 #include <tuple>
 
-#ifndef CELL_T
-
-#define CELL_T char
-
-#endif
 
 enum class INST : unsigned char
 {
@@ -28,8 +23,6 @@ enum class INST : unsigned char
 		INVALID
 };
 
-using cell_t = CELL_T;
-
 using inst_t = INST;
 using prog_t = std::vector<inst_t>;
 
@@ -40,13 +33,16 @@ class Bfexception final: public std::exception
 	const unsigned int id;
 	
 	public:
-	Bfexception(const std::size_t eid);
-	Bfexception(std::string &&msg);
+	Bfexception(const std::size_t eid):msg(exc[eid]),id(eid) {}
+	Bfexception(std::string &&msg):msg(std::move(msg)),id(-1U) {}
 	
 	
-	~Bfexception() override;
+	~Bfexception(){}
 	
-	const char* what() const noexcept override;
+	const char* 	what() const noexcept
+{
+	return msg.c_str();
+}
 	
 	static const char *exc[];
 	enum eid
@@ -60,38 +56,89 @@ class Bfexception final: public std::exception
 	};
 };
 
-class Tape: protected std::unique_ptr<cell_t[]>
+const char *Bfexception::exc[]={
+	"Can not increase PTR Tape. Please increase mem Tape.",
+	"Can not decrease PTR Tape. Please check your code.",
+	"Can not Addition PTR Tape. Please increase mem Tape.",
+	"Can not Subtraction PTR Tape. Please check your code.",
+	"[ must be end with ]. Please check your code.",
+	"] must be begin with [. Please check your code.",
+nullptr};
+
+
+template <class T>
+class Tape: protected std::unique_ptr<T[]>
 {
 	protected:
 	
-	cell_t *ptr;
+	T *ptr;
 	std::size_t length;
 	
 	public:
 	
-	Tape(std::size_t s=512);
+Tape(std::size_t s)
+{
+	settape(s);
+}
 	
-	void settape(std::size_t s);
+void settape(std::size_t s)
+{
+	std::unique_ptr<T[]>::reset(new T[s]);
+	ptr=std::unique_ptr<T[]>::get();
+	length=s;
+		
+	for(std::size_t i=0;i<length;++i)
+		std::unique_ptr<T[]>::get()[i] = 0;	
+}
 	
-	void destroytape(void);
+void destroytape(void)
+{
+	std::unique_ptr<T[]>::release();
+	ptr=nullptr;
+	length=0;
+}
 	
-	const cell_t * const getbaseptr() const;
+const T * const getbaseptr() const
+{
+	return std::unique_ptr<T[]>::get();
+}
 	
-	const cell_t * const getptr() const;
+const T * const getptr() const {return ptr;}
 	
-	cell_t * const getptr_mutable() const;
+T * const getptr_mutable() const {return ptr;}
 	
-	std::size_t getlength() const;
+std::size_t getlength() const {return length;}
 	
-	cell_t * const operator ++ ();
+T * const operator ++ () 
+{
+	if(ptr+1>=std::unique_ptr<T[]>::get()+length) throw Bfexception(Bfexception::eid_incptr);
+		
+	return ++ptr;
+}
 	
-	cell_t * const operator -- ();
+T * const operator -- () 
+{
+	if(ptr-1<std::unique_ptr<T[]>::get()) throw Bfexception(Bfexception::eid_decptr);
+		
+	return --ptr;
+}
 	
-	cell_t & operator * () const ;
+T & operator * () const {return *ptr;}
 	
-	cell_t * const operator + (std::size_t n) const;
+T * const operator + (std::size_t n) const 
+{
+	if(ptr+n>=std::unique_ptr<T[]>::get()+length) throw Bfexception(Bfexception::eid_addptr);
+		
+	return (ptr+n);
+}
 	
-	cell_t * const operator - (std::size_t n) const ;
+T * const operator - (std::size_t n) const 
+	{
+	if(ptr-n<std::unique_ptr<T[]>::get()) throw Bfexception(Bfexception::eid_subptr);
+		
+	return (ptr-n);
+}	
+
 };
 
 class BFEngine
@@ -132,13 +179,13 @@ class BFEngine
 	public:
 	
 	
-	BFEngine(std::streambuf *rd=std::cout.rdbuf());
+	BFEngine(std::streambuf *rd):out(rd){}
 	
 
-	template <class T>
-	int eval(Tape &tape,T begin, T end,int n=0)
+	template <class T,class V>
+	int eval(Tape<T> &tape,V begin, V end,int n=0)
 	{
-		auto ip=begin;
+		V ip=begin;
 		
 		
 		while(ip != end)
@@ -177,6 +224,30 @@ static parseinst_t make_parseinst(Strs ... str)
 	return parseinst_t {std::make_pair(0,std::string(str))...};
 }
 
-INST parseinst(parseinst_t &&parse,std::istream &in);
+static INST parseinst(parseinst_t &&parse,std::istream &in)
+{
+	char ch;
+	
+	while(in.get(ch),!in.eof())
+	{
+
+		for(unsigned int i=0;i<parse.size();++i)
+		{
+			if(parse[i].first < parse[i].second.size() && parse[i].second[parse[i].first]==ch)
+			{
+				if(++parse[i].first >= parse[i].second.size())
+					return static_cast<INST>(i);
+
+				continue;
+			}
+			
+			parse[i].first=0;
+		}
+		
+	}
+
+	return INST::INVALID;
+}
+
 
 #endif
