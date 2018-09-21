@@ -42,7 +42,7 @@ std::ifstream fin;
 
 if(argc > 1)
 {
-	fin.open(argv[1]);
+	fin.open(argv[1],std::ios::binary);
 	if(!fin) 
 	{
 		showerr(err_fin,err,argv[1]);
@@ -54,7 +54,7 @@ std::ofstream fout;
 
 if(argc > 2)
 {
-	fout.open(argv[2]);
+	fout.open(argv[2],std::ios::binary);
 	if(!fout) 
 	{
 		showerr(err_fout,err,argv[2]);
