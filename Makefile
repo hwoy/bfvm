@@ -1,11 +1,11 @@
-.PHONY: all clean bfengin brainfuck voyfuck test_voyfuck \
+.PHONY: all clean bfengine brainfuck voyfuck test_voyfuck \
 assfuck test_assfuck Ook! test_Ook! \
 Alphuck test_Alphuck reversefuck test_reversefuck Blub test_Blub \
 Roadrunner test_Roadrunner
 
-all: bfengin brainfuck voyfuck  assfuck  Ook! Alphuck reversefuck Blub Roadrunner
+all: bfengine brainfuck voyfuck  assfuck  Ook! Alphuck reversefuck Blub Roadrunner
 
-bfengin:
+bfengine:
 	make -C bfengine
 
 brainfuck:
@@ -52,4 +52,4 @@ clean:
 	make -C Ook! clean ; make -C Alphuck clean ;\
 	make -C reversefuck clean ; make -C Blub clean ; make -C Roadrunner clean
 
-test: bfengin test_voyfuck test_assfuck test_Ook! test_Alphuck test_reversefuck test_Blub test_Roadrunner
+test: bfengine test_voyfuck test_assfuck test_Ook! test_Alphuck test_reversefuck test_Blub test_Roadrunner
