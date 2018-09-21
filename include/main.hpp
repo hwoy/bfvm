@@ -31,19 +31,19 @@ if(argc > 1)
 
 std::ofstream fout;
 
-if(argc > 2)
+if(argc >= 2)
 {
-	fout.open(argv[2],std::ios::binary);
+	fout.open(argc==2 ? std::string(argv[1])+".bfc": std::string(argv[2]),std::ios::binary);
 	if(!fout) 
 	{
-		showerr(err_fout,err,argv[2]);
+		showerr(err_fout,err,(argc==2 ? std::string(argv[1])+".bfc": std::string(argv[2])).c_str());
 		return 1;
 	}
 }
 
 
 
-std::ostream &out(argc>2 ? fout: std::cout);
+std::ostream &out(fout);
 INST inst;
 	
 while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
