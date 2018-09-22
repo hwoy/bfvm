@@ -83,7 +83,14 @@ if(argc > 2)
 	}
 }
 
-printout(fin,(argc>2 ? fout : std::cout),ersotric,COL);
+try{
+	printout(fin,(argc>2 ? fout : std::cout),ersotric,COL);
+	
+}catch(const std::exception &e)
+{
+	std::cerr 	<< std::endl	<< "Exception:" << std::endl
+				<< e.what()	<< std::endl;
+}
 
 return 0;
 }

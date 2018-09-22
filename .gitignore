@@ -3,3 +3,4 @@
 *.obj
 *.a
 *.dll
+include/bfengine.hpp
