@@ -7,31 +7,31 @@
 #include <help.hpp>
 #include "config.hpp"
 
-static bool unpackedstream(std::list<INST> &unpackedvec,std::istream &packedis)
+static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 {
 	char ch;
 	if(packedis.get(ch),packedis.eof())
 		return false;
 	
 	Bytecode byte{ch};
-	unpackedvec.push_back(static_cast<INST>(byte.unpacked.low));
-	unpackedvec.push_back(static_cast<INST>(byte.unpacked.high));
+	unpackedlst.push_back(static_cast<INST>(byte.unpacked.low));
+	unpackedlst.push_back(static_cast<INST>(byte.unpacked.high));
 	
 	return true;
 
 }
 
-static unsigned int bracket(std::list<INST> &lst,std::istream &fin,prog_t &prog)
+static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,prog_t &prog)
 {
 	unsigned int n=1;
 	auto looplimit = prog.capacity();
 	auto limit = looplimit-prog.size();
 		
-	while(!lst.empty() || (unpackedstream(lst,fin)))
+	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 		
-		INST inst=static_cast<INST>(lst.front());
-		lst.pop_front();
+		INST inst=static_cast<INST>(unpackedlst.front());
+		unpackedlst.pop_front();
 		
 		if(inst==INST::BEGIN_WHILE) ++n;
 		else if(inst==INST::END_WHILE) --n;
@@ -83,18 +83,18 @@ try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	prog_t prog(LOOPLIMIT*1024);
-	std::list<INST> lst;
+	std::list<INST> unpackedlst;
 	
-	while(!lst.empty() || (unpackedstream(lst,fin)))
+	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 
-		INST inst=static_cast<INST>(lst.front());
-		lst.pop_front();
+		INST inst=static_cast<INST>(unpackedlst.front());
+		unpackedlst.pop_front();
 		
 		prog.clear();
 		prog.push_back(inst);
 		
-		if(inst==INST::BEGIN_WHILE && bracket(lst,fin,prog)) throw Bfexception(Bfexception::eid_while);
+		if(inst==INST::BEGIN_WHILE && bracket(unpackedlst,fin,prog)) throw Bfexception(Bfexception::eid_while);
 		else if(inst==INST::END_WHILE) throw Bfexception(Bfexception::eid_endwhile);
 		
 		engine.eval(tape,prog.begin(),prog.end());
