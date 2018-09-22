@@ -1,30 +1,47 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <list>
 
 #include <bfengine.hpp>
 #include <bytecode.hpp>
 #include <help.hpp>
 #include "config.hpp"
 
-static unsigned int bracket(std::istream &fin,prog_t &prog)
+static bool unpackedstream(std::list<INST> &unpackedvec,std::istream &packedis)
+{
+	char ch;
+	if(packedis.get(ch),packedis.eof())
+		return false;
+	
+	Bytecode byte{ch};
+	unpackedvec.push_back(static_cast<INST>(byte.unpacked.low));
+	unpackedvec.push_back(static_cast<INST>(byte.unpacked.high));
+	
+	return true;
+
+}
+
+static unsigned int bracket(std::list<INST> &lst,std::istream &fin,prog_t &prog)
 {
 	unsigned int n=1;
 	auto looplimit = prog.capacity();
 	auto limit = looplimit-prog.size();
-	
-	char ch;	
-	while(fin.get(ch),!fin.eof())
-		{
-			INST inst=reinterpret_cast<INST&>(ch);
-			if(inst==INST::BEGIN_WHILE) ++n;
-			else if(inst==INST::END_WHILE) --n;
+		
+	while(!lst.empty() || (unpackedstream(lst,fin)))
+	{
+		
+		INST inst=static_cast<INST>(lst.front());
+		lst.pop_front();
+		
+		if(inst==INST::BEGIN_WHILE) ++n;
+		else if(inst==INST::END_WHILE) --n;
 				
-			prog.push_back(inst);
+		prog.push_back(inst);
 			
-			if(!n) break;
-			if(!(--limit)) throw Bfexception("Large [] loop Over the limit:" + std::to_string(looplimit) + " ,Please check your code.");
-		}
+		if(!n) break;
+		if(!(--limit)) throw Bfexception("Large [] loop Over the limit:" + std::to_string(looplimit) + " ,Please check your code.");
+		
+	}
 		
 	return n;
 }
@@ -66,29 +83,24 @@ try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	prog_t prog(LOOPLIMIT*1024);
-	char ch;
-	while(fin.get(ch),!fin.eof())
+	std::list<INST> lst;
+	
+	while(!lst.empty() || (unpackedstream(lst,fin)))
 	{
-		/*
+
+		INST inst=static_cast<INST>(lst.front());
+		lst.pop_front();
+		
 		prog.clear();
-		INST inst=reinterpret_cast<INST&>(ch);
 		prog.push_back(inst);
 		
-		if(inst==INST::BEGIN_WHILE && bracket(fin,prog)) throw Bfexception(Bfexception::eid_while);
+		if(inst==INST::BEGIN_WHILE && bracket(lst,fin,prog)) throw Bfexception(Bfexception::eid_while);
 		else if(inst==INST::END_WHILE) throw Bfexception(Bfexception::eid_endwhile);
 		
 		engine.eval(tape,prog.begin(),prog.end());
-		*/
-		
-		Bytecode byte{{ch}};
 
-		prog.push_back(static_cast<INST>(byte.unpacked.low));
-		prog.push_back(static_cast<INST>(byte.unpacked.high));
-		
 	}
 	
-	engine.eval(tape,prog.begin(),prog.end());
-
 }catch(const std::exception &e)
 {
 	std::cerr 	<< std::endl	<< "Exception:" << std::endl
