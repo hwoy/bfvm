@@ -52,7 +52,8 @@ class Bfexception final: public std::exception
 		eid_addptr,
 		eid_subptr,
 		eid_while,
-		eid_endwhile
+		eid_endwhile,
+		eid_invalidinst
 	};
 };
 
@@ -63,6 +64,7 @@ const char *Bfexception::exc[]={
 	"Can not Subtraction PTR Tape. Please check your code.",
 	"[ must be end with ]. Please check your code.",
 	"] must be begin with [. Please check your code.",
+	"Invalid virtual machine instruction.",
 nullptr};
 
 
@@ -205,7 +207,9 @@ class BFEngine
 				case INST::BEGIN_WHILE: if (!*tape)	std::tie(ip,n) = beginwhile(++ip,end);	break;	
 				case INST::END_WHILE: if (*tape)		std::tie(ip,n) = endwhile(--ip,begin);	break;
 				
-				default: break;
+				case INST::INVALID: break;
+				
+				default: throw Bfexception(Bfexception::eid_invalidinst); 
 			}
 			
 			if(ip!=end) ++ip;

@@ -7,4 +7,4 @@ all: bfengine.hpp
 
 
 clean:
-	rm *.o *.exe
+	rm -rf *.o *.exe ../include/bfengine.hpp
