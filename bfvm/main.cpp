@@ -13,7 +13,7 @@ static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 	if(packedis.get(ch),packedis.eof())
 		return false;
 	
-	Bytecode byte{ch};
+	Bytecode byte{{ch}};
 	unpackedlst.push_back(static_cast<INST>(byte.unpacked.low));
 	unpackedlst.push_back(static_cast<INST>(byte.unpacked.high));
 	
