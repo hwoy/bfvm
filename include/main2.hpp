@@ -23,26 +23,28 @@ static void usage(const char *path,const char *str)
 
 static const char *ersotric[]={PROGINST};
 
-static void printout(std::istream &in,std::ostream &out,const unsigned int CCOL)
+static unsigned int printersoteric(std::ostream &out,INST inst,const char *ersotric[],unsigned int col,const unsigned int CCOL)
+{
+	if(inst != INST::INVALID)
+		{
+			out << ersotric[static_cast<std::size_t>(inst)];
+			if(!(col=(col+1)%CCOL)) out << std::endl;
+		}
+	return col;
+}
+
+static void printout(std::istream &in,std::ostream &out,const char *ersotric[],const unsigned int CCOL)
 {
 	unsigned int col=0;
 	char ch;
 	while(in.get(ch),!in.eof())
 	{
 		Bytecode byte{ch};
-		INST inst;
 	
-	if((inst=static_cast<INST>(byte.unpacked.low)) != INST::INVALID)
-		{
-			out << ersotric[static_cast<std::size_t>(inst)];
-			if(!(col=(col+1)%CCOL)) out << std::endl;
-		}
+		col=printersoteric(out,static_cast<INST>(byte.unpacked.low),ersotric,col,CCOL);
+		
+		col=printersoteric(out,static_cast<INST>(byte.unpacked.high),ersotric,col,CCOL);
 	
-	if((inst=static_cast<INST>(byte.unpacked.high)) != INST::INVALID)
-		{
-			out << ersotric[static_cast<std::size_t>(inst)];
-			if(!(col=(col+1)%CCOL)) out << std::endl;
-		}
 	}
 }
 
@@ -80,10 +82,7 @@ if(argc > 2)
 	}
 }
 
-
-std::ostream &out(argc>2 ? fout : std::cout);
-
-printout(fin,out,COL);
+printout(fin,(argc>2 ? fout : std::cout),ersotric,COL);
 
 return 0;
 }
