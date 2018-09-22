@@ -35,7 +35,7 @@ This project contains virtual machine, basic libryries for brainfuck-like constr
 		
 		
 		
-### Bytecodes
+### Bytecode
 
 | Instruction | Description                                                 |
 |:-----------:|:------------------------------------------------------------|
@@ -56,11 +56,11 @@ Bytecode contains 4 bits of binary.
 Then make two bytecodes to a byte (8 bits).
 50% Packed.
 
-|    Instruction   | Description                                                 |
-|:----------------:|:------------------------------------------------------------|
-|     0000 0000    | ++*ptr  , ++*ptr                                            |
-|     0110 0010    | while(*ptr){ ,  ++ptr                                       |
-|     0011 0111    | --pre , }                                                   |
+|    packed bytecode   | Description                                                 |
+|:--------------------:|:------------------------------------------------------------|
+|     0000 0000        | ++*ptr  , ++*ptr                                            |
+|     0110 0010        | while(*ptr){ ,  ++ptr                                       |
+|     0011 0111        | --pre , }                                                   |
 
 
 ### assfuck language
