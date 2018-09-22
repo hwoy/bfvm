@@ -25,11 +25,12 @@ static const char *ersotric[]={PROGINST};
 
 static unsigned int printersoteric(std::ostream &out,INST inst,const char *ersotric[],unsigned int col,const unsigned int CCOL)
 {
-	if(inst != INST::INVALID)
+	if(inst < INST::INVALID)
 		{
 			out << ersotric[static_cast<std::size_t>(inst)];
 			if(!(col=(col+1)%CCOL)) out << std::endl;
 		}
+	else if(inst > INST::INVALID) throw Bfexception(Bfexception::eid_invalidbytecode);
 	return col;
 }
 
