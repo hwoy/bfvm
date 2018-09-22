@@ -20,4 +20,3 @@ RELEASE = -O3 -Wall -std=$(STD)
 
 CXXFLAGS = $(RELEASE) $(FLAGS) -I$(INCLUDE)
 
-BF=../bf/sierpinski.bf
