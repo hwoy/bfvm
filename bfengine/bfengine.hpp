@@ -30,11 +30,10 @@ using prog_t = std::vector<inst_t>;
 class Bfexception final: public std::exception
 {
 	const std::string msg;
-	const unsigned int id;
 	
 	public:
-	Bfexception(const std::size_t eid):msg(exc[eid]),id(eid) {}
-	Bfexception(std::string &&msg):msg(std::move(msg)),id(-1U) {}
+	Bfexception(const std::size_t eid):msg(exc[eid]) {}
+	Bfexception(std::string &&msg):msg(std::move(msg)) {}
 	
 	
 	~Bfexception() override = default;
