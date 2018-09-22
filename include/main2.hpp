@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <array>
 #include <string>
 
 #include "bfengine.hpp"
+#include "bytecode.hpp"
 #include "common.hpp"
 
 #ifndef COL
@@ -21,11 +21,29 @@ static void usage(const char *path,const char *str)
 	
 }
 
-template <class ... Args>
-static const std::string vmtoesotric(INST inst,Args... str)
+static const char *ersotric[]={PROGINST};
+
+static void printout(std::istream &in,std::ostream &out,const unsigned int CCOL)
 {
-	const std::array<std::string,sizeof...(str)> arr{str...};
-	return arr[static_cast<std::size_t>(inst)];
+	unsigned int col=0;
+	char ch;
+	while(in.get(ch),!in.eof())
+	{
+		Bytecode byte{ch};
+		INST inst;
+	
+	if((inst=static_cast<INST>(byte.unpacked.low)) != INST::INVALID)
+		{
+			out << ersotric[static_cast<std::size_t>(inst)];
+			if(!(col=(col+1)%CCOL)) out << std::endl;
+		}
+	
+	if((inst=static_cast<INST>(byte.unpacked.high)) != INST::INVALID)
+		{
+			out << ersotric[static_cast<std::size_t>(inst)];
+			if(!(col=(col+1)%CCOL)) out << std::endl;
+		}
+	}
 }
 
 int main(int argc , const char *argv[])
@@ -65,14 +83,7 @@ if(argc > 2)
 
 std::ostream &out(argc>2 ? fout : std::cout);
 
-unsigned int col=0;
-char ch;
-while(fin.get(ch),!fin.eof())
-{
-	out << vmtoesotric(reinterpret_cast<INST&>(ch),PROGINST);
-	if(!(col=(col+1)%COL)) out << std::endl;
-}
-	
+printout(fin,out,COL);
 
 return 0;
 }

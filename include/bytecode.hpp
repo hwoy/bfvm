@@ -7,8 +7,8 @@ union Bytecode
 
 	struct
 	{
-		char low:4;
-		char high:4;
+		unsigned char low:4;
+		unsigned char high:4;
 	}unpacked;
 	
 };

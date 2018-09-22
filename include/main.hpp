@@ -50,7 +50,7 @@ Bytecode byte;
 do
 {
 	lowinst=parseinst(make_parseinst(PROGINST),fin);
-	highinst=parseinst(make_parseinst(PROGINST),fin);
+	highinst=(lowinst==INST::INVALID)?INST::INVALID:parseinst(make_parseinst(PROGINST),fin);
 	
 	byte.unpacked.low=static_cast<char>(lowinst);
 	byte.unpacked.high=static_cast<char>(highinst);
