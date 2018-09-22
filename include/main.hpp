@@ -43,19 +43,19 @@ if(argc >= 2)
 	}
 }
 
-
 INST lowinst,highinst;
-Bytecode byte;
 	
 do
 {
+	Bytecode byte;
+	
 	lowinst=parseinst(make_parseinst(PROGINST),fin);
 	highinst=(lowinst==INST::INVALID)?INST::INVALID:parseinst(make_parseinst(PROGINST),fin);
 	
-	byte.unpacked.low=static_cast<char>(lowinst);
-	byte.unpacked.high=static_cast<char>(highinst);
+	byte.unpacked.low=static_cast<unsigned char>(lowinst);
+	byte.unpacked.high=static_cast<unsigned char>(highinst);
 	
-	fout << (byte.packed.byte);
+	fout.put(byte.packed.byte);
 	
 }while(lowinst!= INST::INVALID && lowinst!= INST::INVALID);
 	
