@@ -1,9 +1,7 @@
 union Bytecode
 {
-	struct
-	{
-	char byte;
-	}packed;
+
+	char packed;
 
 	struct
 	{

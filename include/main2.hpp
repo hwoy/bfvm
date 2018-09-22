@@ -40,7 +40,7 @@ static void printout(std::istream &in,std::ostream &out,const char *ersotric[],c
 	char ch;
 	while(in.get(ch),!in.eof())
 	{
-		Bytecode byte{{ch}};
+		Bytecode byte{ch};
 	
 		col=printersoteric(out,static_cast<INST>(byte.unpacked.low),ersotric,col,CCOL);
 		

@@ -57,7 +57,7 @@ do
 		byte.unpacked.low=static_cast<unsigned char>(lowinst);
 		byte.unpacked.high=static_cast<unsigned char>(highinst);
 	
-		fout.put(byte.packed.byte);
+		fout.put(byte.packed);
 	}
 	
 }while(lowinst!= INST::INVALID && lowinst!= INST::INVALID);
