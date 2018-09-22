@@ -1,8 +1,8 @@
 include ../Makefile.in
 
-BIN=ass
+BIN=aSS
 
-BIN2=bc2ass
+BIN2=bc2aSS
 
 
 .PHONY: all clean test

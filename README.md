@@ -7,7 +7,7 @@ This project contains virtual machine, basic libryries for brainfuck-like constr
 ### Overview
 
  
-   brainfuck          assfuck              Ook!
+   brainfuck          aSSfuck              Ook!
        \                 |                 /
 	    \                |                /
 		 \               |               /
@@ -63,7 +63,7 @@ Then make two bytecodes to a byte (8 bits).
 |     0011 0111        | --pre , }                                                   |
 
 
-### assfuck language
+### aSSfuck language
 
 assfuck is a joke programming lauage that uses brainfuck's semantic.
 
