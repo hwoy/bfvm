@@ -7,6 +7,7 @@
 #include "basicparse.hpp"
 #include "help.hpp"
 
+#define EXTEND ".pbc"
 
 
 int main(int argc , const char *argv[])
@@ -35,10 +36,10 @@ std::ofstream fout;
 
 if(argc >= 2)
 {
-	fout.open(argc==2 ? std::string(argv[1])+".pbc": std::string(argv[2]),std::ios::binary);
+	fout.open(argc==2 ? std::string(argv[1])+EXTEND : std::string(argv[2]),std::ios::binary);
 	if(!fout) 
 	{
-		showerr(err_fout,err,(argc==2 ? std::string(argv[1])+".pbc": std::string(argv[2])).c_str());
+		showerr(err_fout,err,(argc==2 ? std::string(argv[1])+EXTEND : std::string(argv[2])).c_str());
 		return 1;
 	}
 }
