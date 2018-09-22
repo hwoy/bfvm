@@ -65,7 +65,7 @@ Then make two bytecodes to a byte (8 bits).
 
 ### aSSfuck language
 
-assfuck is a joke programming lauage that uses brainfuck's semantic.
+aSSfuck is a joke programming lauage that uses brainfuck's semantic.
 
 
 assassassassassassassassassassAsSaSsassassass
