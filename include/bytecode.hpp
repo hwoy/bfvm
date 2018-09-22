@@ -1,3 +1,6 @@
+#ifndef __BYTECODE_HPP__
+#define __BYTECODE_HPP__
+
 union Bytecode
 {
 
@@ -11,3 +14,4 @@ union Bytecode
 	
 };
 
+#endif
