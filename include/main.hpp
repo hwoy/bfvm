@@ -47,15 +47,18 @@ INST lowinst,highinst;
 	
 do
 {
-	Bytecode byte;
 	
-	lowinst=parseinst(make_parseinst(PROGINST),fin);
-	highinst=(lowinst==INST::INVALID)?INST::INVALID:parseinst(make_parseinst(PROGINST),fin);
+	if((lowinst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
+	{
 	
-	byte.unpacked.low=static_cast<unsigned char>(lowinst);
-	byte.unpacked.high=static_cast<unsigned char>(highinst);
+		highinst=parseinst(make_parseinst(PROGINST),fin);
 	
-	fout.put(byte.packed.byte);
+		Bytecode byte;
+		byte.unpacked.low=static_cast<unsigned char>(lowinst);
+		byte.unpacked.high=static_cast<unsigned char>(highinst);
+	
+		fout.put(byte.packed.byte);
+	}
 	
 }while(lowinst!= INST::INVALID && lowinst!= INST::INVALID);
 	
