@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "bfengine.hpp"
+#include "basicparse.hpp"
 #include "help.hpp"
 
 
