@@ -1,9 +1,9 @@
 .PHONY: all clean bfengine bfvm brainfuck voyfuck  \
-assfuck  Ook!  \
+aSSfuck  Ook!  \
 Alphuck reversefuck Blub test_Blub \
 Roadrunner  Triplet  uncensoredfuck
 
-all: bfengine bfvm brainfuck voyfuck  assfuck  Ook! Alphuck reversefuck Blub Roadrunner Triplet uncensoredfuck
+all: bfengine bfvm brainfuck voyfuck  aSSfuck  Ook! Alphuck reversefuck Blub Roadrunner Triplet uncensoredfuck
 
 bfengine:
 	make -C bfengine
@@ -17,8 +17,8 @@ brainfuck: bfengine
 voyfuck: bfengine
 	make -C voyfuck
 
-assfuck: bfengine
-	make -C assfuck
+aSSfuck: bfengine
+	make -C aSSfuck
 
 Ook!: bfengine
 	make -C Ook!
@@ -44,7 +44,7 @@ uncensoredfuck: bfengine
 
 clean:
 	make -C bfengine clean ; make -C bfvm clean ; make -C brainfuck clean ;\
-	make -C voyfuck clean ; make -C assfuck clean ;\
+	make -C voyfuck clean ; make -C aSSfuck clean ;\
 	make -C Ook! clean ; make -C Alphuck clean ;\
 	make -C reversefuck clean ; make -C Blub clean ; make -C Roadrunner clean ; make -C Triplet clean ; \
 	make -C uncensoredfuck clean
