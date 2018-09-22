@@ -48,7 +48,7 @@ INST lowinst,highinst;
 do
 {
 	
-	if((lowinst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
+	if((lowinst=parseinst(make_parseinst(PROGINST),fin)) != INST::NOP)
 	{
 	
 		highinst=parseinst(make_parseinst(PROGINST),fin);
@@ -60,7 +60,7 @@ do
 		fout.put(byte.packed);
 	}
 	
-}while(lowinst!= INST::INVALID && lowinst!= INST::INVALID);
+}while(lowinst!= INST::NOP && lowinst!= INST::NOP);
 	
 
 return 0;

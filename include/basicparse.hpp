@@ -41,7 +41,7 @@ static INST parseinst(parseinst_t &&parse,std::basic_istream<T> &in)
 		
 	}
 
-	return INST::INVALID;
+	return INST::NOP;
 }
 
 

@@ -20,7 +20,7 @@ enum class INST : unsigned char
 		GET_VALUE,
 		BEGIN_WHILE,
 		END_WHILE,
-		INVALID
+		NOP
 };
 
 using inst_t = INST;
@@ -206,7 +206,7 @@ class BFEngine
 				case INST::BEGIN_WHILE: if (!*tape)	std::tie(ip,n) = beginwhile(++ip,end);	break;	
 				case INST::END_WHILE: if (*tape)		std::tie(ip,n) = endwhile(--ip,begin);	break;
 				
-				case INST::INVALID: break;
+				case INST::NOP: break;
 				
 				default: throw Bfexception(Bfexception::eid_invalidbytecode); 
 			}
