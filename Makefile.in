@@ -14,8 +14,10 @@ INCLUDE = ../include
 
 FLAGS = -DLOOPLIMIT=$(LOOPLIMIT) -DBFTAPE=$(TAPESIZE) -DCELL_T=$(CELL_T) -DCOL=$(COL)
 
-DEBUGFLAGS = -O2 -Wall -std=$(STD)
+DEBUG = -g -Wall -std=$(STD)
 
-CXXFLAGS = $(DEBUGFLAGS) $(FLAGS) -I$(INCLUDE)
+RELEASE = -O3 -Wall -std=$(STD)
+
+CXXFLAGS = $(RELEASE) $(FLAGS) -I$(INCLUDE)
 
 BF=../bf/sierpinski.bf
