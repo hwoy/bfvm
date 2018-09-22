@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 #include "bfengine.hpp"
+#include "bytecode.hpp"
 #include "basicparse.hpp"
 #include "help.hpp"
 
@@ -33,19 +35,32 @@ std::ofstream fout;
 
 if(argc >= 2)
 {
-	fout.open(argc==2 ? std::string(argv[1])+".ubc": std::string(argv[2]),std::ios::binary);
+	fout.open(argc==2 ? std::string(argv[1])+".pbc": std::string(argv[2]),std::ios::binary);
 	if(!fout) 
 	{
-		showerr(err_fout,err,(argc==2 ? std::string(argv[1])+".bfc": std::string(argv[2])).c_str());
+		showerr(err_fout,err,(argc==2 ? std::string(argv[1])+".pbc": std::string(argv[2])).c_str());
 		return 1;
 	}
 }
 
 
-INST inst;	
-while((inst=parseinst(make_parseinst(PROGINST),fin)) != INST::INVALID)
-	fout << reinterpret_cast<char&>(inst);
+INST lowinst,highinst;
+Bytecode byte;
+	
+do
+{
+	lowinst=parseinst(make_parseinst(PROGINST),fin);
+	highinst=parseinst(make_parseinst(PROGINST),fin);
+	
+	byte.unpacked.low=static_cast<char>(lowinst);
+	byte.unpacked.high=static_cast<char>(highinst);
+	
+	fout << (byte.packed.byte);
+	
+}while(lowinst!= INST::INVALID && lowinst!= INST::INVALID);
 	
 
 return 0;
 }
+
+

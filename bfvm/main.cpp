@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 #include <bfengine.hpp>
+#include <bytecode.hpp>
 #include <help.hpp>
 #include "config.hpp"
 
@@ -67,16 +69,25 @@ try{
 	char ch;
 	while(fin.get(ch),!fin.eof())
 	{
+		/*
 		prog.clear();
 		INST inst=reinterpret_cast<INST&>(ch);
 		prog.push_back(inst);
 		
 		if(inst==INST::BEGIN_WHILE && bracket(fin,prog)) throw Bfexception(Bfexception::eid_while);
 		else if(inst==INST::END_WHILE) throw Bfexception(Bfexception::eid_endwhile);
-
+		
 		engine.eval(tape,prog.begin(),prog.end());
+		*/
+		
+		Bytecode byte{{ch}};
+
+		prog.push_back(static_cast<INST>(byte.unpacked.low));
+		prog.push_back(static_cast<INST>(byte.unpacked.high));
+		
 	}
 	
+	engine.eval(tape,prog.begin(),prog.end());
 
 }catch(const std::exception &e)
 {
@@ -84,6 +95,5 @@ try{
 				<< e.what()	<< std::endl;
 }
 	
-
 return 0;
 }
