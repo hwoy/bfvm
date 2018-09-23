@@ -39,7 +39,7 @@ static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,prog_
 		prog.push_back(inst);
 			
 		if(!n) break;
-		if(!(--limit)) throw Bfexception("Large [] loop Over the limit:" + std::to_string(looplimit) + " ,Please check your code.");
+		if(!(--limit)) throw Bfexception("Loop Over the limit:" + std::to_string(looplimit) + " ,Please check your code.");
 		
 	}
 		

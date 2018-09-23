@@ -61,8 +61,8 @@ const char *Bfexception::exc[]={
 	"Can not decrease PTR Tape. Please check your code.",
 	"Can not Addition PTR Tape. Please increase mem Tape.",
 	"Can not Subtraction PTR Tape. Please check your code.",
-	"[ must be end with ]. Please check your code.",
-	"] must be begin with [. Please check your code.",
+	"BEGIN_WHILE must be end with END_WHILE. Please check your code.",
+	"END_WHILE must be begin with BEGIN_WHILE. Please check your code.",
 	"Invalid virtual machine byte code.",
 nullptr};
 
