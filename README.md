@@ -83,7 +83,7 @@ Hello World!
 We can encode packed bytecode to brainfuck!!
 
 ```s
-$ bc2brainfuck hello.ass.pbc hello.bf
+$ bc2brainfuck hello.ass.pbc
 
 [+,]++++++++++[>+++++++>++++++++
 ++>+++>+<<<<-]>++.>+.+++++++..++
