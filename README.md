@@ -11,10 +11,10 @@ This project contains virtual machine, basic libryries for brainfuck-like constr
        `\                 `|                 `/
 	    `\                `|                `/
 		 `\               `|               `/
-		  '\              `|              `/
+		  `\              `|              `/
 		   `\             `|             `/
-		    `\  (Compile to bytecode)  `/ 
-			 '\           `|           `/
+		    `\  `(Compile to bytecode`)  `/ 
+			 `\           `|           `/
 			  `\          `|          `/
                `\         `|         `/
 			    `\        `|        `/
