@@ -38,6 +38,7 @@ Then make two bytecodes to a byte (8 bits).
 aSSfuck is a joke programming language that uses brainfuck's semantic.
 
 
+```s
 assassassassassassassassassassAsSaSsassassass
 assassassassaSsassassassassassassassassassassaSsass
 assassaSsassasSasSasSasSAssASSaSsassassASsaSsassASs
@@ -46,15 +47,20 @@ assASsasSasSassassassassassassassassassassassassass
 assassASsaSsASsassassassASsAssAssAssAssAssAss
 ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 
+```
+
 
 It can be compiled to packed bytecodes
 
+```s
 20202020202620202020202020202002
 20023333710240020420202044204002
 40332020202020202040422040111111
 1411111141022484
 
 (Converted to HEX by Notepad++)
+
+```
 
 ####run on bfvm.
 ```s
@@ -65,7 +71,12 @@ Hello World!
 
 We can encode packed bytecode to brainfuck!!
 
+```s
 ++++++++++[>+++++++>++++++++++>+
 ++>+<<<<-]>++.>+.+++++++..+++.>+
 +.<<+++++++++++++++.>.+++.------
 .--------.>+.>.
+```
+
+- Email: booskillerz@gmail.com
+- FB: facebook.com/watt.duean
