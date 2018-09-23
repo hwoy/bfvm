@@ -43,7 +43,10 @@ aSSfuck is a joke programming language that uses brainfuck's semantic.
 
 
 ```s
-$ ass hello.ass
+AsS
+	hello.ass
+	Hello World! for aSSfuck
+ASS
 assassassassassassassassassassAsSaSsassassass
 assassassassaSsassassassassassassassassassassaSsass
 assassaSsassasSasSasSasSAssASSaSsassassASsaSsassASs
@@ -58,6 +61,8 @@ ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 It can be compiled to packed bytecodes
 
 ```s
+$ ass hello.ass
+
 20202020202620202020202020202002
 20023333710240020420202044204002
 40332020202020202040422040111111
@@ -69,14 +74,17 @@ It can be compiled to packed bytecodes
 
 #### Run on bfvm.
 ```s
+$ bvm hello.ass.pbc
+
 Hello World!
 
-(result)
 ```
 
 We can encode packed bytecode to brainfuck!!
 
 ```s
+$ bc2brainfuck hello.ass.pbc hello.bf
+
 ++++++++++[>+++++++>++++++++++>+
 ++>+<<<<-]>++.>+.+++++++..+++.>+
 +.<<+++++++++++++++.>.+++.------
