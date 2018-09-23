@@ -72,7 +72,7 @@ $ ass hello.ass
 
 ```
 
-#### Run on bfvm.
+#### Run on Brainfuck Virtual Machine.
 ```s
 $ bfvm hello.ass.pbc
 
