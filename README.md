@@ -74,7 +74,7 @@ $ ass hello.ass
 
 #### Run on bfvm.
 ```s
-$ bvm hello.ass.pbc
+$ bfvm hello.ass.pbc
 
 Hello World!
 
