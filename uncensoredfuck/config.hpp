@@ -4,4 +4,6 @@
 
 #define PROGDESC2 "Bytecode to uncensored fuck Decoder."
 
+#define WHITESPACE ""
+
 

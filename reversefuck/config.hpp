@@ -5,3 +5,6 @@
 #define PROGDESC2 "Bytecode to reversefuck Decoder."
 
 
+#define WHITESPACE ""
+
+

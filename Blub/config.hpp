@@ -4,4 +4,6 @@
 
 #define PROGDESC2 "Bytecode to Blub Decoder."
 
+#define WHITESPACE " "
+
 

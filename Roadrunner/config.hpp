@@ -4,4 +4,6 @@
 
 #define PROGDESC2 "Bytecode to Roadrunner Decoder."
 
+#define WHITESPACE ""
+
 

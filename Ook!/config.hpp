@@ -4,4 +4,6 @@
 
 #define PROGDESC2 "Bytecode to OOk! Decoder."
 
+#define WHITESPACE " "
+
 

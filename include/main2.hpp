@@ -23,18 +23,18 @@ static void usage(const char *path,const char *str)
 
 static const char *ersotric[]={PROGINST};
 
-static unsigned int printersoteric(std::ostream &out,INST inst,const char *ersotric[],unsigned int col,const unsigned int CCOL)
+static unsigned int printersoteric(std::ostream &out,INST inst,const char *ersotric[],unsigned int col,const unsigned int CCOL,const char *whitespace)
 {
 	if(inst < INST::NOP)
 		{
-			out << ersotric[static_cast<std::size_t>(inst)];
+			out << ersotric[static_cast<std::size_t>(inst)] << whitespace;
 			if(!(col=(col+1)%CCOL)) out << std::endl;
 		}
 	else if(inst > INST::NOP) throw Bfexception(Bfexception::eid_invalidbytecode);
 	return col;
 }
 
-static void printout(std::istream &in,std::ostream &out,const char *ersotric[],const unsigned int CCOL)
+static void printout(std::istream &in,std::ostream &out,const char *ersotric[],const unsigned int CCOL,const char *whitespace)
 {
 	unsigned int col=0;
 	char ch;
@@ -42,9 +42,9 @@ static void printout(std::istream &in,std::ostream &out,const char *ersotric[],c
 	{
 		Bytecode byte{ch};
 	
-		col=printersoteric(out,static_cast<INST>(byte.unpacked.low),ersotric,col,CCOL);
+		col=printersoteric(out,static_cast<INST>(byte.unpacked.low),ersotric,col,CCOL,whitespace);
 		
-		col=printersoteric(out,static_cast<INST>(byte.unpacked.high),ersotric,col,CCOL);
+		col=printersoteric(out,static_cast<INST>(byte.unpacked.high),ersotric,col,CCOL,whitespace);
 	
 	}
 }
@@ -84,7 +84,7 @@ if(argc > 2)
 }
 
 try{
-	printout(fin,(argc>2 ? fout : std::cout),ersotric,COL);
+	printout(fin,(argc>2 ? fout : std::cout),ersotric,COL,WHITESPACE);
 	
 }catch(const std::exception &e)
 {

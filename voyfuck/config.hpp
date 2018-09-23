@@ -4,4 +4,5 @@
 
 #define PROGDESC2 "Bytecode to voyfuck Decoder."
 
+#define WHITESPACE ""
 

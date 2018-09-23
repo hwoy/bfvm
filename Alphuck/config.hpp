@@ -5,3 +5,6 @@
 #define PROGDESC2 "Bytecode to Alphuck Decoder."
 
 
+#define WHITESPACE ""
+
+
