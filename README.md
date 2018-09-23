@@ -11,17 +11,17 @@ Or Decode bytecodes to (brainfuck,aSSfuck,reversefuck,Alphuck).
 		
 ### Bytecode
 
-| Instruction | Description                                                 |
-|:-----------:|:------------------------------------------------------------|
-|     0000    | Increment the memory cell under the pointer                 |
-|     0001    | Decrement the memory cell under the pointer                 |
-|     0010    | Move the pointer to the right                               |
-|     0011    | Move the pointer to the left                                |
-|     0100    | Output the character signified by the cell at the pointer   |
-|     0101    | Input a character and store it in the cell at the pointer   |
-|     0110    | Jump to the matching `"` if the cell under the pointer is 0 |
-|     0111    | Toggles whether subsequent `"` commands start or end a loop |
-|     1000    | No Processing                                               |
+| Instruction | Description                                                                            |
+|:-----------:|:---------------------------------------------------------------------------------------|
+|     0000    | Increment the memory cell under the pointer                                            |
+|     0001    | Decrement the memory cell under the pointer                                            |
+|     0010    | Move the pointer to the right                                                          |
+|     0011    | Move the pointer to the left                                                           |
+|     0100    | Output the character signified by the cell at the pointer                              |
+|     0101    | Input a character and store it in the cell at the pointer                              |
+|     0110    | Begin of loop structure, Jump out loop structured if the cell under the pointer is 0   |
+|     0111    | End of loop structure, Jump to Begin of loop structure                                 |
+|     1000    | No Processing                                                                          |
 
 
 ### Packed bytecode
