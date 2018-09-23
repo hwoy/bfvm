@@ -61,16 +61,17 @@ ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 
 #### Compiled to packed bytecodes
 
-dumpbin by [hexdmp](https://github.com/hwoy/hexdmp)
+Dumpbin by [hexdmp](https://github.com/hwoy/hexdmp)
 
 ```s
 $ ass hello.ass
+$ hexdmp -h hello.ass.pbc
 
 == hello.ass.pbc ==
-00000000: 06 75 00 00 00 00 00 26 00 00 00 20 00 00 00 00 
-00000010: 00 02 00 02 33 33 71 02 40 02 04 00 00 00 44 00 
-00000020: 40 02 40 33 00 00 00 00 00 00 00 40 42 00 40 11 
-00000030: 11 11 14 11 11 11 41 02 24 84 
+0000000000000000: 06 75 00 00 00 00 00 26 00 00 00 20 00 00 00 00 
+0000000000000010: 00 02 00 02 33 33 71 02 40 02 04 00 00 00 44 00 
+0000000000000020: 40 02 40 33 00 00 00 00 00 00 00 40 42 00 40 11 
+0000000000000030: 11 11 14 11 11 11 41 02 24 84 
 
 ```
 
