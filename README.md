@@ -1,9 +1,10 @@
 # Brainfuck Virtual Machine
 
-The virtual machine for trivial brainfuck-cloned semantic programming language.
+The virtual machine for trivial [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) semantic programming language.
 This project contains virtual machine, compilers, basic libraries for brainfuck-like programming language construction.
 
 ### Overview
+Brainfuck virtual machine is a memory-base virtual machine.
 Compile (brainfuck,aSSfuck,reversefuck,Alphuck) to bytecode.
 Use brainfuck virtual machine to execute bytecodes.
 Or Decode bytecodes to (brainfuck,aSSfuck,reversefuck,Alphuck).
@@ -63,14 +64,15 @@ ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 ```s
 $ ass hello.ass
 
-06752020202020262020202020202020
-20022002333371024002042020204420
-40024033202020202020204042204011
-11111411111141022484
+== hello.ass.pbc ==
+00000000: 06 75 00 00 00 00 00 26 00 00 00 20 00 00 00 00 
+00000010: 00 02 00 02 33 33 71 02 40 02 04 00 00 00 44 00 
+00000020: 40 02 40 33 00 00 00 00 00 00 00 40 42 00 40 11 
+00000030: 11 11 14 11 11 11 41 02 24 84 
 
-(Converted to HEX by Notepad++)
 
 ```
+dumpbin by [hexdmp](https://github.com/hwoy/hexdmp)
 
 #### Run on Brainfuck Virtual Machine
 ```s
