@@ -1,10 +1,12 @@
 # Brainfuck virtual machine
 
 The virtual machine for trivial brainfuck-cloned semantic programming language.
-This project contains virtual machine, basic libryries for brainfuck-like programming language construction.
+This project contains virtual machine, compilers, basic libryries for brainfuck-like programming language construction.
 
 ### Overview
-Use brainfuck virtual machine run bytecodes.
+Compile (brainfuck,aSSfuck,reversefuck,Alphuck) to bytecode.
+Use brainfuck virtual machine to execute bytecodes.
+Or Decode bytecodes to (brainfuck,aSSfuck,reversefuck,Alphuck).
 		
 		
 ### Bytecode
