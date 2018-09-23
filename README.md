@@ -1,4 +1,4 @@
-# Brainfuck virtual machine
+# Brainfuck Virtual Machine
 
 The virtual machine for trivial brainfuck-cloned semantic programming language.
 This project contains virtual machine, compilers, basic libryries for brainfuck-like programming language construction.
@@ -43,6 +43,7 @@ aSSfuck is a joke programming language that uses brainfuck's semantic.
 
 
 ```s
+$ ass hello.ass
 assassassassassassassassassassAsSaSsassassass
 assassassassaSsassassassassassassassassassassaSsass
 assassaSsassasSasSasSasSAssASSaSsassassASsaSsassASs
