@@ -61,6 +61,8 @@ ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 
 #### Compiled to packed bytecodes
 
+dumpbin by [hexdmp](https://github.com/hwoy/hexdmp)
+
 ```s
 $ ass hello.ass
 
@@ -70,8 +72,6 @@ $ ass hello.ass
 00000020: 40 02 40 33 00 00 00 00 00 00 00 40 42 00 40 11 
 00000030: 11 11 14 11 11 11 41 02 24 84 
 
-
-dumpbin by [hexdmp](https://github.com/hwoy/hexdmp)
 ```
 
 #### Run on Brainfuck Virtual Machine
