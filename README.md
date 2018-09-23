@@ -58,7 +58,7 @@ ASsAssAssAssAssAssAssAssAssASsaSsassASsaSsASs
 ```
 
 
-It can be compiled to packed bytecodes
+#### Compiled to packed bytecodes
 
 ```s
 $ ass hello.ass
@@ -80,7 +80,7 @@ Hello World!
 
 ```
 
-We can encode packed bytecode to brainfuck!!
+#### Encode packed bytecode to brainfuck!!
 
 ```s
 $ bc2brainfuck hello.ass.pbc
