@@ -62,7 +62,7 @@ It can be compiled to packed bytecodes
 
 ```
 
-####run on bfvm.
+#### Run on bfvm.
 ```s
 Hello World!
 
