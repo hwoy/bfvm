@@ -57,10 +57,10 @@ class Bfexception final: public std::exception
 };
 
 const char *Bfexception::exc[]={
-	"Can not increase PTR Tape. Please increase mem Tape.",
-	"Can not decrease PTR Tape. Please check your code.",
-	"Can not Addition PTR Tape. Please increase mem Tape.",
-	"Can not Subtraction PTR Tape. Please check your code.",
+	"Can not increase PTR cell. Please increase Tape Size.",
+	"Can not decrease PTR cell. Please check your code.",
+	"Can not Addition PTR cell. Please increase Tape Size.",
+	"Can not Subtraction PTR cell. Please check your code.",
 	"BEGIN_WHILE must be end with END_WHILE. Please check your code.",
 	"END_WHILE must be begin with BEGIN_WHILE. Please check your code.",
 	"Invalid virtual machine byte code.",
