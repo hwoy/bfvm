@@ -56,12 +56,12 @@ It can be compiled to packed bytecodes
 
 (Converted to HEX by Notepad++)
 
-run on bfvm.
-
+####run on bfvm.
+```s
 Hello World!
 
 (result)
-
+```
 
 We can encode packed bytecode to brainfuck!!
 
