@@ -7,17 +7,17 @@ This project contains virtual machine, basic libryries for brainfuck-like constr
 		
 ### Bytecode
 
-`| Instruction `| Description                                                 `|
+| Instruction | Description                                                 |
 |:-----------:|:------------------------------------------------------------|
-`|     0000    `| Increment the memory cell under the pointer                 `|
-`|     0001    `| Decrement the memory cell under the pointer                 `|
-`|     0010    `| Move the pointer to the right                               `|
-`|     0011    `| Move the pointer to the left                                `|
-`|     0100    `| Output the character signified by the cell at the pointer   `|
-`|     0101    `| Input a character and store it in the cell at the pointer   `|
-`|     0110    `| Jump to the matching `"` if the cell under the pointer is 0 `|
-`|     0111    `| Toggles whether subsequent `"` commands start or end a loop `|
-`|     1000    `| No Processing                                               `|
+|     0000    | Increment the memory cell under the pointer                 |
+|     0001    | Decrement the memory cell under the pointer                 |
+|     0010    | Move the pointer to the right                               |
+|     0011    | Move the pointer to the left                                |
+|     0100    | Output the character signified by the cell at the pointer   |
+|     0101    | Input a character and store it in the cell at the pointer   |
+|     0110    | Jump to the matching `"` if the cell under the pointer is 0 |
+|     0111    | Toggles whether subsequent `"` commands start or end a loop |
+|     1000    | No Processing                                               |
 
 
 ### Packed bytecode
@@ -26,11 +26,11 @@ Bytecode contains 4 bits of binary.
 Then make two bytecodes to a byte (8 bits).
 50% Packed.
 
-`|    packed bytecode   `| Description                                                 `|
+|    packed bytecode   | Description                                                 |
 |:--------------------:|:------------------------------------------------------------|
-`|     0000 0000        `| `+`+`*ptr  `, `+`+`*ptr                                            `|
-`|     0110 0010        `| while`(`*ptr`)`{ `,  `+`+ptr                                       `|
-`|     0011 0111        `| `-`-pre `, `}                                                   `|
+|     0000 0000        | `+`+`*ptr  `, `+`+`*ptr                                            |
+|     0110 0010        | while`(`*ptr`)`{ `,  `+`+ptr                                       |
+|     0011 0111        | `-`-pre `, `}                                                   |
 
 
 ### aSSfuck language
