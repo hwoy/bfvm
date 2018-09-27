@@ -211,10 +211,10 @@ class BFEngine
 						*tape.getptr_mutable() = ch;
 					
 				#elif defined(EOF_MINUS1) 
-					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) : -1 : ch;
+					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) ? -1 : ch;
 					
 				#elif defined(EOF_0) 
-					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) : 0 : ch;
+					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) ? 0 : ch;
 					
 				#else
 					*tape.getptr_mutable() = ch;
