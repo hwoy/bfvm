@@ -15,7 +15,7 @@ int main(int argc , const char *argv[])
 
 if(argc<=1)
 {
-	usage(argv[0],PROGDESC,0,0);
+	usage(argv[0],PROGDESC);
 	return 0;
 }
 

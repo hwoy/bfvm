@@ -4,8 +4,40 @@
 
 #include <bfengine.hpp>
 #include <bytecode.hpp>
-#include <help.hpp>
+#include <common.hpp>
 #include "config.hpp"
+
+static void usage(const char *path,const char *str,std::size_t tapesize,std::size_t cellsize)
+{
+	auto gpath=path::grap(path);
+	
+	std::cerr << std::endl << gpath << " is " << str << std::endl << std::endl
+						  << gpath << " input-file" << std::endl
+						  << gpath << " input-file output-file" << std::endl << std::endl;
+	
+	std::cerr << "TAPESIZE = " << tapesize << ", CELLSIZE = " << cellsize*8 << " bits"<< std::endl << std::endl;
+	
+	std::cerr << "*** "
+	
+	#if  defined(EOF_UNCHANGED)
+			"If takes an EOF, unchanges a current value of cell."
+					
+	#elif defined(EOF_MINUS1) 
+			"If takes an EOF, changes a current value of cell to -1"
+					
+	#elif defined(EOF_0) 
+			"If takes an EOF, changes a current value of cell to 0"
+					
+	#else
+			"If takes an EOF, changes a current value of cell to this EOF value"
+				
+	#endif
+	
+	<< " ***" << std::endl << std::endl;
+}
+
+
+
 
 static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 {

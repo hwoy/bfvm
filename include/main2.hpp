@@ -4,22 +4,12 @@
 
 #include "bfengine.hpp"
 #include "bytecode.hpp"
-#include "common.hpp"
+#include "help.hpp"
 
 #ifndef COL
 #define COL 32
 #endif
 
-
-static void usage(const char *path,const char *str)
-{
-	auto gpath=path::grap(path);
-	
-	std::cerr << std::endl << gpath << " is " << str << std::endl << std::endl
-						  << gpath << " input-file" << std::endl
-						  << gpath << " input-file output-file" << std::endl << std::endl;
-	
-}
 
 static const char *ersotric[]={PROGINST};
 
