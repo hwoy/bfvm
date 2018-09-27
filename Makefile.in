@@ -4,7 +4,7 @@ STD =c++11 -pedantic
 
 LOOPLIMIT=64
 
-TAPESIZE=512
+TAPESIZE=\(1*512\)
 
 CELL_T=char
 
