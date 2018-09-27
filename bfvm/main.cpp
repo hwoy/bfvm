@@ -30,10 +30,13 @@ static void usage(const char *path,const char *str,std::size_t tapesize,std::siz
 					
 	#else
 			"If takes an EOF, changes a current value of cell to this EOF value"
+
 				
 	#endif
 	
-	<< " ***" << std::endl << std::endl;
+	<< " ***" << std::endl << std::endl
+	
+	<< "***** Suggest EOF = " << std::char_traits<char>::eof() << " *****" << std::endl << std::endl;
 }
 
 
