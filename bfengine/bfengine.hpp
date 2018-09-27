@@ -191,6 +191,7 @@ class BFEngine
 		
 		while(ip != end)
 		{
+			int ch;
 			switch (*ip)
 			{
 				case INST::SUCC_VALUE: ++(*tape);	break;
@@ -201,7 +202,26 @@ class BFEngine
 			
 
 				case INST::PUT_VALUE: out << reinterpret_cast<const char&>(*tape.getptr()); out.flush(); 	break;
-				case INST::GET_VALUE: *tape.getptr_mutable() = std::cin.get();	 break;
+				case INST::GET_VALUE:
+				
+				ch = std::cin.get();
+				
+				#if  defined(EOF_UNCHANGED)
+					if(ch !=  std::char_traits<char>::eof())
+						*tape.getptr_mutable() = ch;
+					
+				#elif defined(EOF_MINUS1) 
+					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) : -1 : ch;
+					
+				#elif defined(EOF_0) 
+					*tape.getptr_mutable()=(ch == std::char_traits<char>::eof()) : 0 : ch;
+					
+				#else
+					*tape.getptr_mutable() = ch;
+				
+				#endif
+				
+				break;
 				
 				case INST::BEGIN_WHILE: if (!*tape)	std::tie(ip,n) = beginwhile(++ip,end);	break;	
 				case INST::END_WHILE: if (*tape)		std::tie(ip,n) = endwhile(--ip,begin);	break;
