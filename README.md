@@ -8,6 +8,14 @@ Brainfuck virtual machine is a memory-base virtual machine.
 Compile (brainfuck,aSSfuck,reversefuck,Alphuck) to bytecode.
 Use brainfuck virtual machine to execute bytecodes.
 Or Decode bytecodes to (brainfuck,aSSfuck,reversefuck,Alphuck).
+
+```s
+
+ brainfuck\                                         /enecoded to Triplet
+  aSSfuck ------------------------> (packed bytecode) ------------------------> (run on bfvm)
+   Alphuck/                                         \encoded to Ook!
+
+```
 		
 		
 ### Bytecode
