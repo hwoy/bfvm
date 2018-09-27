@@ -19,7 +19,7 @@ static parseinst_t make_parseinst(Strs ... str)
 }
 
 template <class T>
-static INST parseinst(parseinst_t &&parse,std::basic_istream<T> &in)
+static INST parseinst(parseinst_t parse,std::basic_istream<T> &in)
 {
 	char ch;
 	
