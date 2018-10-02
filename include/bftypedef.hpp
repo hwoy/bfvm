@@ -22,8 +22,9 @@ enum class INST : inst_item_t
 using inst_t = INST;
 using prog_t = std::vector<inst_t>;
 
-#define BIT_OF_UNPACKED_LOW(X) (sizeof(X)*8/2)
-#define BIT_OF_UNPACKED_HIGH(X) (sizeof(X)-BIT_OF_UNPACKED_LOW(X))
+#define BIT_OF_UNPACKED(X) (sizeof(X)*8)
+#define BIT_OF_UNPACKED_LOW(X) (BIT_OF_UNPACKED(X)/2)
+#define BIT_OF_UNPACKED_HIGH(X) (BIT_OF_UNPACKED(X)-BIT_OF_UNPACKED_LOW(X))
 
 union Bytecode
 {
