@@ -16,7 +16,7 @@ class proginst_trait
 {
 	public:
 	template <class T,std::size_t N>
-	static constexpr std::size_t number_of_element(const T (&var)[N]) {return N;}
+	static constexpr std::size_t number_of_element(const T (&)[N]) {return N;}
 	
 };
 
