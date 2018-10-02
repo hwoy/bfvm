@@ -22,9 +22,9 @@ TEST_PROGINST(PROGINST)
 #endif
 
 template <typename ...Args>
-static constexpr auto make_array_of_PROGINST(Args ...args) -> std::array<const char*,sizeof...(args)>
+static constexpr auto make_array_of_PROGINST(Args ...args) -> std::array<typename std::common_type<Args...>::type,sizeof...(args)>
 {
-	return std::array<const char*,sizeof...(args)> {args...};
+	return std::array<typename std::common_type<Args...>::type,sizeof...(args)> {args...};
 }
 
 template <typename T>
