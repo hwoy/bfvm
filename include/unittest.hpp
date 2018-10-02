@@ -23,7 +23,12 @@ struct proginst_trait
 
 
 // ========================  test union Bytecode ======================== //
+
 #define TEST_UNIONBYTECODE(__INST_ITEM_T__,__CHAR_T__) static_assert(std::is_integral<__INST_ITEM_T__>::value && sizeof(__INST_ITEM_T__)==sizeof(__CHAR_T__),"Union Bytecode requires inst_item_t = integral type and its size = size of char");
 
+
+// ========================  test commond type ======================== //
+
+#define TEST_COMMON_TYPE(__TYPEARGS__,__TEST__) static_assert(std::is_same<typename std::common_type<__TYPEARGS__ ...>::type,__TEST__>::value,"Common type and test are not same");
 
 #endif

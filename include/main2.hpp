@@ -22,9 +22,12 @@ TEST_PROGINST(PROGINST)
 #define COL 32
 #endif
 
+
 template <typename ...Args>
 static constexpr auto make_array_of_PROGINST(Args ...args) -> std::array<typename std::common_type<Args...>::type,sizeof...(args)>
 {
+	TEST_COMMON_TYPE(Args,const char *)
+
 	return std::array<typename std::common_type<Args...>::type,sizeof...(args)> {args...};
 }
 
