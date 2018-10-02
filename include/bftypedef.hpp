@@ -30,8 +30,8 @@ union Bytecode
 
 	struct
 	{
-		inst_item_t low:4;
-		inst_item_t high:4;
+		inst_item_t low:sizeof(inst_item_t)*8/2;
+		inst_item_t high:sizeof(inst_item_t)*8/2;
 	}unpacked;
 	
 };
