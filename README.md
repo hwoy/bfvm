@@ -102,5 +102,17 @@ $ bc2brainfuck hello.ass.pbc
 ----.--------.>+.>.
 ```
 
+### bfvm specification
+- Manual cell type such as char, short, int, long long int via CELL_T in Makefile.in
+- Fixed tape size, manual tape size via TAPESIZE in Makefile.in
+- At the begin of TAPE, can not move cell ptr to left
+- At the end of TAPE, can not move cell ptr to right
+- Output INST::PUT_VALUE as binary
+- Default EOF is lib's EOF, manual EOF behavior by EOF_UNCHANGED, EOF_MINUS1, EOF_0 in Makefile.in
+- Fixed program size but reuseable
+- Program as iterator not stream
+- Error management
+
+### Contact me
 - Email: booskillerz@gmail.com
 - FB: facebook.com/watt.duean
