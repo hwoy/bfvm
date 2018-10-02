@@ -22,6 +22,8 @@ enum class INST : inst_item_t
 using inst_t = INST;
 using prog_t = std::vector<inst_t>;
 
+#define BIT_OF_UNPACKED(X) (sizeof(X)*8/2)
+
 union Bytecode
 {
 	TEST_UNIONBYTECODE(inst_item_t,char)
@@ -30,8 +32,8 @@ union Bytecode
 
 	struct
 	{
-		inst_item_t low:sizeof(inst_item_t)*8/2;
-		inst_item_t high:sizeof(inst_item_t)*8/2;
+		inst_item_t low:(BIT_OF_UNPACKED(inst_item_t));
+		inst_item_t high:(BIT_OF_UNPACKED(inst_item_t));
 	}unpacked;
 	
 };
