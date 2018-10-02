@@ -15,9 +15,9 @@ INCLUDE = ../include
 
 FLAGS = -DLOOPLIMIT=$(LOOPLIMIT) -DTAPESIZE=$(TAPESIZE) -DCELL_T=$(CELL_T) -DCOL=$(COL) -DEOF_DEFAULT
 
-DEBUG = -g -Wall -std=$(STD)
+DEBUG = -g -Wall -Wextra -std=$(STD)
 
-RELEASE = -O3 -Wall -std=$(STD)
+RELEASE = -O3 -Wall -Wextra -std=$(STD)
 
 CXXFLAGS = $(RELEASE) $(FLAGS) -I$(INCLUDE)
 

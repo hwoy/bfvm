@@ -5,13 +5,13 @@
 using cell_t = CELL_T;
 
 struct path{
-	static constexpr const char * const grap(const char * const path)
+	static constexpr const char * grap(const char * const path)
 	{
 		return grap(path,path);
 	}
 	
 	private:
-	static constexpr const char * const grap(const char * const gpath,const char * const path)
+	static constexpr const char * grap(const char * const gpath,const char * const path)
 	{
 		return *path?  grap( (*path=='\\' || *path =='/') ? path+1 : gpath,path+1) : gpath;
 	}
