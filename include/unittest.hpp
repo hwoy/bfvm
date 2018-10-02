@@ -10,6 +10,9 @@ struct proginst_trait
 {
 	template <class ...Args>
 	static constexpr std::size_t number_of_element(Args ...args) {return sizeof...(args);}
+
+	template <class ...Args>
+	using type = typename std::common_type<Args ...>::type;
 	
 };
 
@@ -29,6 +32,6 @@ struct proginst_trait
 
 // ========================  test commond type ======================== //
 
-#define TEST_COMMON_TYPE(__TYPEARGS__,__TEST__) static_assert(std::is_same<typename std::common_type<__TYPEARGS__ ...>::type,__TEST__>::value,"Common type and test are not same");
+#define TEST_COMMON_TYPE(__TYPEARGS__,__TEST__) static_assert(std::is_same<proginst_trait::type<__TYPEARGS__ ...> , __TEST__>::value,"Common type and test are not same");
 
 #endif
