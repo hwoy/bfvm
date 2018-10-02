@@ -10,8 +10,8 @@
 #include <tuple>
 #include <type_traits>
 
-
-enum class INST : unsigned char
+using inst_item_t = unsigned char;
+enum class INST : inst_item_t
 {
 		SUCC_VALUE,
 		PRED_VALUE,
