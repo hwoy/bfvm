@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <tuple>
+#include <type_traits>
 
 
 enum class INST : unsigned char
@@ -70,6 +71,9 @@ nullptr};
 template <class T>
 class Tape: protected std::unique_ptr<T[]>
 {
+	static_assert(std::is_integral<T>::value,
+                  "class Tape requires integral type");
+				  
 	protected:
 	
 	T *ptr;
