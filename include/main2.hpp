@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <array>
+#include <type_traits>
 
 #include "bftypedef.hpp"
 #include "bfexception.hpp"
