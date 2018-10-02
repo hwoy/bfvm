@@ -228,7 +228,7 @@ class BFEngine
 				break;
 				
 				case INST::BEGIN_WHILE: if (!*tape)	std::tie(ip,n) = beginwhile(++ip,end);	break;	
-				case INST::END_WHILE: if (*tape)		std::tie(ip,n) = endwhile(--ip,begin);	break;
+				case INST::END_WHILE: 	if (*tape)	std::tie(ip,n) = endwhile(--ip,begin);	break;
 				
 				case INST::NOP: break;
 				
