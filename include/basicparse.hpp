@@ -9,13 +9,16 @@
 #include <type_traits>
 
 #include "bftypedef.hpp"
+#include "unittest.hpp"
 
 template <std::size_t N>
 using parseinst_t = std::array<std::pair<unsigned int,const std::string> , N >;
 
-template <class ... Strs>
-static constexpr auto make_parseinst(Strs ... str) -> parseinst_t<sizeof...(str)>
+template <class ... Args>
+static constexpr auto make_parseinst(Args ... str) -> parseinst_t<sizeof...(str)>
 {
+	TEST_COMMON_TYPE(Args,const char *)
+
 	return parseinst_t<sizeof...(str)> {std::make_pair(0,std::string(str))...};
 }
 
