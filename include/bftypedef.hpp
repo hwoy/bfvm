@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "unittest.hpp"
+
 using inst_item_t = unsigned char;
 enum class INST : inst_item_t
 {
@@ -22,8 +24,7 @@ using prog_t = std::vector<inst_t>;
 
 union Bytecode
 {
-	static_assert(std::is_integral<inst_item_t>::value && sizeof(inst_item_t)==sizeof(char) && sizeof(inst_item_t)==1,
-                  "Union Bytecode requires inst_item_t = integral type and its size = size of char");
+	TEST_UNIONBYTECODE(inst_item_t)
 
 	char packed;
 
