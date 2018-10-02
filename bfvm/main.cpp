@@ -3,6 +3,7 @@
 #include <list>
 
 #include <bfengine.hpp>
+#include <bfexception.hpp>
 #include <help.hpp>
 #include "config.hpp"
 

@@ -7,7 +7,7 @@
 #include <string>
 #include <tuple>
 
-#include "bfengine.hpp"
+#include "bftypedef.hpp"
 
 
 using parseinst_t = std::vector<  std::pair<unsigned int,const std::string>  >;

@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 
-#include "bfengine.hpp"
+#include "bftypedef.hpp"
+#include "bfexception.hpp"
 #include "help.hpp"
 
 #ifndef COL

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "bfengine.hpp"
+#include "bftypedef.hpp"
 #include "basicparse.hpp"
 #include "help.hpp"
 
