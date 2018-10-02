@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <array>
 
 #include "bftypedef.hpp"
 #include "bfexception.hpp"
@@ -20,6 +20,12 @@ TEST_PROGINST(PROGINST)
 #ifndef COL
 #define COL 32
 #endif
+
+template <typename ...Args>
+static constexpr const auto make_array_of_PROGINST(Args ...args) -> std::array<const char*,sizeof...(args)>
+{
+	return std::array<const char*,sizeof...(args)> {args...};
+}
 
 template <typename T>
 static unsigned int printersoteric(std::ostream &out,INST inst,const T &ersotric,unsigned int col,const unsigned int CCOL,const char *whitespace)
@@ -84,7 +90,7 @@ if(argc > 2)
 }
 
 try{
-	printout(fin,(argc>2 ? fout : std::cout),std::vector<const char*> {PROGINST},COL,WHITESPACE);
+	printout(fin,(argc>2 ? fout : std::cout),make_array_of_PROGINST(PROGINST),COL,WHITESPACE);
 	
 }catch(const std::exception &e)
 {
