@@ -3,23 +3,24 @@
 #define __BASICPARSE_HPP__
 
 #include <iostream>
-#include <vector>
+#include <array>
 #include <string>
 #include <tuple>
+#include <type_traits>
 
 #include "bftypedef.hpp"
 
-
-using parseinst_t = std::vector<  std::pair<unsigned int,const std::string>  >;
+template <std::size_t N>
+using parseinst_t = std::array<std::pair<unsigned int,const std::string> , N >;
 
 template <class ... Strs>
-static parseinst_t make_parseinst(Strs ... str)
+static constexpr auto make_parseinst(Strs ... str) -> parseinst_t<sizeof...(str)>
 {
-	return parseinst_t {std::make_pair(0,std::string(str))...};
+	return parseinst_t<sizeof...(str)> {std::make_pair(0,std::string(str))...};
 }
 
-template <class T>
-static INST parseinst(parseinst_t parse,std::basic_istream<T> &in)
+template <class T,std::size_t N>
+static INST parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 {
 	char ch;
 	
