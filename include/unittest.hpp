@@ -23,7 +23,7 @@ struct proginst_trait
 
 
 // ========================  test union Bytecode ======================== //
-#define TEST_UNIONBYTECODE(__INST_ITEM_T__) static_assert(std::is_integral<__INST_ITEM_T__>::value && sizeof(__INST_ITEM_T__)==sizeof(char) && sizeof(__INST_ITEM_T__)==1,"Union Bytecode requires inst_item_t = integral type and its size = size of char");
+#define TEST_UNIONBYTECODE(__INST_ITEM_T__,__CHAR_T__) static_assert(std::is_integral<__INST_ITEM_T__>::value && sizeof(__INST_ITEM_T__)==sizeof(__CHAR_T__),"Union Bytecode requires inst_item_t = integral type and its size = size of char");
 
 
 #endif

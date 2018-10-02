@@ -24,7 +24,7 @@ using prog_t = std::vector<inst_t>;
 
 union Bytecode
 {
-	TEST_UNIONBYTECODE(inst_item_t)
+	TEST_UNIONBYTECODE(inst_item_t,char)
 
 	char packed;
 
