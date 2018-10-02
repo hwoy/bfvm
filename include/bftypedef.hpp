@@ -22,6 +22,8 @@ using prog_t = std::vector<inst_t>;
 
 union Bytecode
 {
+	static_assert(std::is_integral<inst_item_t>::value && sizeof(inst_item_t)==sizeof(char),
+                  "Union Bytecode requires inst_item_t = integral type and its size = size of char");
 
 	char packed;
 
