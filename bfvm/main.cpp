@@ -3,7 +3,6 @@
 #include <list>
 
 #include <bfengine.hpp>
-#include <bytecode.hpp>
 #include <help.hpp>
 #include "config.hpp"
 

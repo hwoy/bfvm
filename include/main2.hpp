@@ -3,7 +3,6 @@
 #include <string>
 
 #include "bfengine.hpp"
-#include "bytecode.hpp"
 #include "help.hpp"
 
 #ifndef COL

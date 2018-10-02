@@ -3,7 +3,6 @@
 #include <sstream>
 
 #include "bfengine.hpp"
-#include "bytecode.hpp"
 #include "basicparse.hpp"
 #include "help.hpp"
 
