@@ -6,6 +6,15 @@
 #include "basicparse.hpp"
 #include "help.hpp"
 
+// ========================  test PROGINST ======================== //
+
+#include "unittest.hpp"
+
+TEST_PROGINST(PROGINST)
+
+// ========================  test PROGINST ======================== //
+
+
 #define EXTEND ".pbc"
 
 
