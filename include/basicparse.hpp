@@ -29,15 +29,15 @@ static INST parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 
 		for(unsigned int i=0;i<parse.size();++i)
 		{
-			if(parse[i].first < parse[i].second.size() && parse[i].second[parse[i].first]==ch)
+			if(parse.at(i).first < parse.at(i).second.size() && parse.at(i).second.at(parse.at(i).first)==ch)
 			{
-				if(++parse[i].first >= parse[i].second.size())
+				if(++parse.at(i).first >= parse.at(i).second.size())
 					return static_cast<INST>(i);
 
 				continue;
 			}
 			
-			parse[i].first=0;
+			parse.at(i).first=0;
 		}
 		
 	}
