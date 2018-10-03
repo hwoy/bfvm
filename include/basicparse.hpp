@@ -22,6 +22,7 @@ static constexpr auto make_parseinst(Args ... str) -> parseinst_t<sizeof...(str)
 	return parseinst_t<sizeof...(str)> {std::make_pair(0,std::string(str))...};
 }
 
+
 template <class T,std::size_t N>
 static inst_t parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 {
@@ -45,7 +46,8 @@ static inst_t parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 		
 	}
 
-	return inst_t::NOP;
+	// inst_t == INST
+	return INST::NOP;
 }
 
 
