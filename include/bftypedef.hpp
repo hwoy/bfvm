@@ -43,7 +43,7 @@ union Bytecode
 
 	struct
 	{
-		inst_item_t __low__:(BIT_OF_UNPACKED_LOW(inst_item_t));
+		inst_item_t __low__ :(BIT_OF_UNPACKED_LOW(inst_item_t));
 		inst_item_t __high__:(BIT_OF_UNPACKED_HIGH(inst_item_t));
 	}__unpacked__;
 	
