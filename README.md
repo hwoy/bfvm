@@ -111,7 +111,7 @@ $ bc2brainfuck hello.ass.pbc
 - Default EOF is lib's EOF, manual EOF behavior by EOF_UNCHANGED, EOF_MINUS1, EOF_0 in Makefile.in
 - Fixed program size but reuseable
 - Program as iterator not stream
-- Error management
+- Error management, Segmentation fault is imposible!!!!!!
 
 ### Contact me
 - Email: booskillerz@gmail.com
