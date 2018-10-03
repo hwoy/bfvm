@@ -32,7 +32,7 @@ static constexpr auto make_array_of_PROGINST(Args ...args) -> std::array<typenam
 }
 
 template <typename T>
-static unsigned int printersoteric(std::ostream &out,INST inst,const T &ersotric,unsigned int col,const unsigned int CCOL,const char *whitespace)
+static unsigned int printersoteric(std::ostream &out,inst_t inst,const T &ersotric,unsigned int col,const unsigned int CCOL,const char *whitespace)
 {
 	if(inst < INST::NOP)
 		{

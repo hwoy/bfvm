@@ -52,7 +52,7 @@ if(argc >= 2)
 	}
 }
 
-INST lowinst,highinst;
+inst_t lowinst,highinst;
 	
 do
 {
