@@ -62,7 +62,7 @@ static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,prog_
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 		
-		INST inst=static_cast<INST>(unpackedlst.front());
+		INST inst=unpackedlst.front();
 		unpackedlst.pop_front();
 		
 		if(inst==INST::BEGIN_WHILE) ++n;
@@ -120,7 +120,7 @@ try{
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 
-		INST inst=static_cast<INST>(unpackedlst.front());
+		INST inst=unpackedlst.front();
 		unpackedlst.pop_front();
 		
 		prog.clear();
