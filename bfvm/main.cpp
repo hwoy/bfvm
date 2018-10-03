@@ -7,6 +7,7 @@
 #include <help.hpp>
 #include "config.hpp"
 
+
 static void usage(const char *path,const char *str,std::size_t tapesize,std::size_t cellsize)
 {
 	usage(path,str);

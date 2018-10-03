@@ -19,6 +19,12 @@ enum class INST : inst_item_t
 		NOP
 };
 
+#ifndef CELL_T
+#define CELL_T char
+#endif
+
+using cell_t = CELL_T;
+
 using inst_t = INST;
 using prog_t = std::vector<inst_t>;
 
