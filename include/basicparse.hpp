@@ -23,7 +23,7 @@ static constexpr auto make_parseinst(Args ... str) -> parseinst_t<sizeof...(str)
 }
 
 template <class T,std::size_t N>
-static INST parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
+static inst_t parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 {
 	char ch;
 	
@@ -35,7 +35,7 @@ static INST parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 			if(parse.at(i).first < parse.at(i).second.size() && parse.at(i).second.at(parse.at(i).first)==ch)
 			{
 				if(++parse.at(i).first >= parse.at(i).second.size())
-					return static_cast<INST>(i);
+					return static_cast<inst_t>(i);
 
 				continue;
 			}
@@ -45,7 +45,7 @@ static INST parseinst(parseinst_t<N> parse,std::basic_istream<T> &in)
 		
 	}
 
-	return INST::NOP;
+	return inst_t::NOP;
 }
 
 
