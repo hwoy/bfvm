@@ -50,7 +50,7 @@ union Bytecode
 	inline constexpr Bytecode(INST low,INST high):__unpacked__{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
 
 	
-	Bytecode& packedbytecode(INST low,INST high)
+	inline Bytecode& packedbytecode(INST low,INST high)
 	{
 		__unpacked__ = {static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)};
 
