@@ -53,7 +53,7 @@ static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 
 }
 
-static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,prog_t &prog)
+static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,Program &prog)
 {
 	unsigned int n=1;
 	auto looplimit = prog.capacity();
@@ -114,7 +114,7 @@ if(argc > 2)
 try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
-	prog_t prog(LOOPLIMIT*1024);
+	Program prog(LOOPLIMIT*1024);
 	std::list<INST> unpackedlst;
 	
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))

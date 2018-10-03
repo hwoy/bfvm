@@ -27,7 +27,8 @@ enum class INST : inst_item_t
 using cell_t = CELL_T;
 
 using inst_t = INST;
-using prog_t = std::vector<inst_t>;
+
+using Program = std::vector<inst_t>;
 
 #define BIT_OF_UNPACKED(X) (sizeof(X)*8)
 #define BIT_OF_UNPACKED_LOW(X) (BIT_OF_UNPACKED(X)/2)
@@ -48,7 +49,7 @@ union Bytecode
 	
 	Bytecode()=delete;
 	inline constexpr explicit Bytecode(char ch):__packed__(ch) {}
-	inline constexpr explicit Bytecode(INST low,INST high):__unpacked__{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
+	inline constexpr explicit Bytecode(inst_t low,inst_t high):__unpacked__{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
 
 
 	inline constexpr char packed() const
@@ -56,17 +57,17 @@ union Bytecode
 		return __packed__;
 	}
 
-	inline constexpr std::pair<INST,INST> unpacked() const
+	inline constexpr std::pair<inst_t,inst_t> unpacked() const
 	{
-    	return std::pair<INST,INST>{static_cast<INST>(__unpacked__.__low__),static_cast<INST>(__unpacked__.__high__)};
+    	return std::pair<inst_t,inst_t>{static_cast<inst_t>(__unpacked__.__low__),static_cast<inst_t>(__unpacked__.__high__)};
 	}
 
-	inline constexpr INST low() const
+	inline constexpr inst_t low() const
 	{
 		return unpacked().first;
 	}
 
-	inline constexpr INST high() const
+	inline constexpr inst_t high() const
 	{
 		return unpacked().second;
 	}
