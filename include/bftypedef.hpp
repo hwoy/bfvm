@@ -46,16 +46,10 @@ union Bytecode
 		inst_item_t __high__:(BIT_OF_UNPACKED_HIGH(inst_item_t));
 	}__unpacked__;
 	
+	Bytecode()=delete;
 	inline constexpr Bytecode(char ch):__packed__(ch) {}
 	inline constexpr Bytecode(INST low,INST high):__unpacked__{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
 
-	
-	inline Bytecode& packedbytecode(INST low,INST high)
-	{
-		__unpacked__ = {static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)};
-
-    	return *this;
-	}
 
 	inline constexpr char packed() const
 	{
