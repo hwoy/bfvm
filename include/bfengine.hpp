@@ -51,11 +51,11 @@ const T * getbaseptr() const
 	return std::unique_ptr<T[]>::get();
 }
 	
-const T * getptr() const {return ptr;}
+constexpr const T * getptr() const {return ptr;}
 	
-T * getptr_mutable() const {return ptr;}
+constexpr T * getptr_mutable() const {return ptr;}
 	
-std::size_t getlength() const {return length;}
+constexpr std::size_t getlength() const {return length;}
 	
 T * operator ++ () 
 {
