@@ -51,11 +51,11 @@ if(argc >= 2)
 		return 1;
 	}
 }
-
-inst_t lowinst,highinst;
 	
 do
 {
+	inst_t lowinst,highinst;
+	
 	if((lowinst=parseinst(make_parseinst(PROGINST),fin)) , !fin.eof())
 	{
 	

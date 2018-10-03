@@ -115,6 +115,7 @@ try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	Program prog(LOOPLIMIT*1024);
+
 	std::list<inst_t> unpackedlst;
 	
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
