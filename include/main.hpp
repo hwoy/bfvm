@@ -61,11 +61,7 @@ do
 	
 		highinst=parseinst(make_parseinst(PROGINST),fin);
 	
-		Bytecode byte;
-		byte.unpacked.low=static_cast<inst_item_t>(lowinst);
-		byte.unpacked.high=static_cast<inst_item_t>(highinst);
-	
-		fout.put(byte.packed);
+		fout.put(Bytecode(lowinst,highinst).packed);
 	}
 	
 }while(!fin.eof());

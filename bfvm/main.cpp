@@ -46,8 +46,8 @@ static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 		return false;
 	
 	Bytecode byte{ch};
-	unpackedlst.push_back(static_cast<INST>(byte.unpacked.low));
-	unpackedlst.push_back(static_cast<INST>(byte.unpacked.high));
+	unpackedlst.push_back(byte.low());
+	unpackedlst.push_back(byte.high());
 	
 	return true;
 

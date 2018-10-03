@@ -2,6 +2,7 @@
 #define __BFTYPEDEF_HPP__
 
 #include <vector>
+#include <tuple>
 
 #include "unittest.hpp"
 
@@ -38,12 +39,37 @@ union Bytecode
 
 	char packed;
 
-	struct
+	struct Unpacked
 	{
 		inst_item_t low:(BIT_OF_UNPACKED_LOW(inst_item_t));
 		inst_item_t high:(BIT_OF_UNPACKED_HIGH(inst_item_t));
 	}unpacked;
 	
+	inline constexpr Bytecode(char ch):packed(ch) {}
+	inline constexpr Bytecode(INST low,INST high):unpacked{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
+
+	
+	Bytecode& packedbytecode(INST low,INST high)
+	{
+		unpacked = {static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)};
+
+    	return *this;
+	}
+
+	inline constexpr std::pair<INST,INST> unpackedbytecode()
+	{
+    	return std::pair<INST,INST>{static_cast<INST>(unpacked.low),static_cast<INST>(unpacked.high)};
+	}
+
+	inline constexpr INST low()
+	{
+		return static_cast<INST>(unpackedbytecode().first);
+	}
+
+	inline constexpr INST high()
+	{
+		return static_cast<INST>(unpackedbytecode().second);
+	}
 };
 
 #endif

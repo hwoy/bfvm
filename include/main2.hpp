@@ -52,9 +52,9 @@ static void printout(std::istream &in,std::ostream &out,const T &ersotric,const 
 	{
 		Bytecode byte{ch};
 	
-		col=printersoteric(out,static_cast<INST>(byte.unpacked.low),ersotric,col,CCOL,whitespace);
+		col=printersoteric(out,byte.low(),ersotric,col,CCOL,whitespace);
 		
-		col=printersoteric(out,static_cast<INST>(byte.unpacked.high),ersotric,col,CCOL,whitespace);
+		col=printersoteric(out,byte.high(),ersotric,col,CCOL,whitespace);
 	
 	}
 }
