@@ -57,24 +57,24 @@ union Bytecode
     	return *this;
 	}
 
-	inline constexpr char packed()
+	inline constexpr char packed() const
 	{
 		return __packed__;
 	}
 
-	inline constexpr std::pair<INST,INST> unpacked()
+	inline constexpr std::pair<INST,INST> unpacked() const
 	{
     	return std::pair<INST,INST>{static_cast<INST>(__unpacked__.__low__),static_cast<INST>(__unpacked__.__high__)};
 	}
 
-	inline constexpr INST low()
+	inline constexpr INST low() const
 	{
-		return static_cast<INST>(unpacked().first);
+		return unpacked().first;
 	}
 
-	inline constexpr INST high()
+	inline constexpr INST high() const
 	{
-		return static_cast<INST>(unpacked().second);
+		return unpacked().second;
 	}
 };
 
