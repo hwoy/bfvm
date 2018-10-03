@@ -136,7 +136,7 @@ try{
 }catch(const std::exception &e)
 {
 	std::cerr 	<< std::endl	<< "Exception:" << std::endl
-				<< e.what()	<< std::endl;
+				<< e.what()		<< std::endl;
 }
 	
 return 0;
