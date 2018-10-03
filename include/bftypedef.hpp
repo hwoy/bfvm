@@ -38,33 +38,33 @@ union Bytecode
 	TEST_UNIONBYTECODE(inst_item_t,char)
 
 
-	char _packed;
+	char __packed__;
 
 	struct
 	{
-		inst_item_t _low:(BIT_OF_UNPACKED_LOW(inst_item_t));
-		inst_item_t _high:(BIT_OF_UNPACKED_HIGH(inst_item_t));
-	}_unpacked;
+		inst_item_t __low__:(BIT_OF_UNPACKED_LOW(inst_item_t));
+		inst_item_t __high__:(BIT_OF_UNPACKED_HIGH(inst_item_t));
+	}__unpacked__;
 	
-	inline constexpr Bytecode(char ch):_packed(ch) {}
-	inline constexpr Bytecode(INST low,INST high):_unpacked{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
+	inline constexpr Bytecode(char ch):__packed__(ch) {}
+	inline constexpr Bytecode(INST low,INST high):__unpacked__{static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)} {}
 
 	
 	Bytecode& packedbytecode(INST low,INST high)
 	{
-		_unpacked = {static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)};
+		__unpacked__ = {static_cast<inst_item_t>(low),static_cast<inst_item_t>(high)};
 
     	return *this;
 	}
 
 	inline constexpr char packed()
 	{
-		return _packed;
+		return __packed__;
 	}
 
 	inline constexpr std::pair<INST,INST> unpacked()
 	{
-    	return std::pair<INST,INST>{static_cast<INST>(_unpacked._low),static_cast<INST>(_unpacked._high)};
+    	return std::pair<INST,INST>{static_cast<INST>(__unpacked__.__low__),static_cast<INST>(__unpacked__.__high__)};
 	}
 
 	inline constexpr INST low()
