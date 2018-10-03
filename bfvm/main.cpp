@@ -39,7 +39,7 @@ static void usage(const char *path,const char *str,std::size_t tapesize,std::siz
 
 
 
-static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
+static bool unpackedstream(std::list<inst_t> &unpackedlst,std::istream &packedis)
 {
 	char ch;
 	if(packedis.get(ch),packedis.eof())
@@ -53,7 +53,7 @@ static bool unpackedstream(std::list<INST> &unpackedlst,std::istream &packedis)
 
 }
 
-static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,Program &prog)
+static unsigned int bracket(std::list<inst_t> &unpackedlst,std::istream &fin,Program &prog)
 {
 	unsigned int n=1;
 	auto looplimit = prog.capacity();
@@ -62,7 +62,7 @@ static unsigned int bracket(std::list<INST> &unpackedlst,std::istream &fin,Progr
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 		
-		INST inst=unpackedlst.front();
+		inst_t inst=unpackedlst.front();
 		unpackedlst.pop_front();
 		
 		if(inst==INST::BEGIN_WHILE) ++n;
@@ -115,12 +115,12 @@ try{
 	Tape<cell_t> tape(TAPESIZE);
 	BFEngine engine(argc>2 ? fout.rdbuf() : std::cout.rdbuf() );
 	Program prog(LOOPLIMIT*1024);
-	std::list<INST> unpackedlst;
+	std::list<inst_t> unpackedlst;
 	
 	while(!unpackedlst.empty() || (unpackedstream(unpackedlst,fin)))
 	{
 
-		INST inst=unpackedlst.front();
+		inst_t inst=unpackedlst.front();
 		unpackedlst.pop_front();
 		
 		prog.clear();
