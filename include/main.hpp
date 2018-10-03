@@ -61,7 +61,7 @@ do
 	
 		highinst=parseinst(make_parseinst(PROGINST),fin);
 	
-		fout.put(Bytecode(lowinst,highinst).packed);
+		fout.put(Bytecode(lowinst,highinst).packed());
 	}
 	
 }while(!fin.eof());
